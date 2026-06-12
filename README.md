@@ -1,1 +1,6 @@
-# aios-business-builder
+# aios-business-builder/
+├── README.md
+├── prompts/
+├── knowledge/
+├── artifacts/
+└── logs/
