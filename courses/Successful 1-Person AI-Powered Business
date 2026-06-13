@@ -1,0 +1,135 @@
+**Course Title: Building a Successful 1-Person AI-Powered Business with Claude (Practical Implementation Course)**
+
+This course is directly inspired by Albert Olgaard's comprehensive 4-hour YouTube tutorial (2026) on starting and running a solo business using Claude Code (Anthropic's AI coding environment integrated with tools like VS Code). The original video emphasizes non-technical accessibility, setup of an "AI Operating System" (AIOS), building deliverables (websites, automations, full AI systems), client acquisition via Upwork and cold email, pricing, delivery, and mindset for long-term success.
+
+It structures content progressively: mindset and opportunity, technical setup, client-getting systems, service delivery (3 levels: basic websites/automations/full AI systems), and scaling/automation of your own operations. The video stresses that 84% of people haven't meaningfully used AI yet (as of 2026 data in the video), creating massive opportunity for the top ~0.04% who master tools like Claude to deliver "magic" to businesses.
+
+**Course Goals**: By the end, you'll have hands-on skills to launch and operate a real 1-person business. Exercises build cumulatively—each module's output feeds the next—culminating in a **capstone project**: a complete, client-ready AI service offering (e.g., an automated lead follow-up system or custom AI agent) that you can pitch, deliver, and use to generate revenue.
+
+**Prerequisites**: Basic computer skills. No prior coding required (Claude handles most heavy lifting). Access to Claude (free/Pro), a computer, GitHub account, and willingness to invest time (video suggests ~4+ hours core learning + practice).
+
+**Duration**: 6-8 weeks self-paced (or faster if dedicated), ~20-40 hours total including exercises. Use the original video as a primary reference alongside this structured path.
+
+**Tools You'll Use** (from the video and standard recommendations):
+- Claude Code / Claude.ai + Skills/MCP.
+- VS Code.
+- GitHub.
+- Upwork, Instantly.ai or similar for outreach.
+- GoHighLevel or equivalents for automations.
+
+**Structure**: Modules with theory/context (drawing from video), real exercises, nuances/edge cases, and reflections. Track progress in a personal "AIOS" journal or Notion doc.
+
+### Module 1: Mindset, Opportunity, and Business Foundations (Why This Works in 2026+)
+**Context**: AI adoption is still low; most businesses need help implementing it. Excitement curve: Initial hype → dip (95% quit here) → persistence leads to traction. Focus on value delivery over "get rich quick." One-person companies can scale massively with AI.
+
+**Key Topics**:
+- AI opportunity stats and market readiness (US/UK early, now expanding to Europe, Asia, South America).
+- Excitement curve management and resilience.
+- Business models: AI services (websites, automations, agents) for SMBs.
+
+**Exercises**:
+1. Watch video sections 00:00-00:19 (Intro + Why AI). Journal: List 3 personal strengths + 3 business problems you see in your network/industry that AI could solve.
+2. Research 5 local/SMB businesses (e.g., via Google Maps or LinkedIn). Note their potential AI needs (lead gen, customer support, scheduling). Write a 1-page "Opportunity Report."
+3. **Build Exercise**: Create a personal "Business Vision Doc" in Claude—prompt it to outline your ideal 1-person biz based on your skills/interests.
+
+**Nuances/Edge Cases**: Not everyone succeeds immediately—expect client rejection. Legal/tax basics (consult local resources). Competition exists but execution + portfolio differentiates.
+
+**Milestone Output**: Validated niche idea (e.g., "AI automations for real estate agents").
+
+### Module 2: Technical Setup – Building Your AIOS (AI Operating System)
+**Context**: Install Claude properly, integrate with VS Code/GitHub, install/customize Claude Skills for productivity. This turns your computer into an AI-augmented workspace automating 90% of operations.
+
+**Key Topics**:
+- Claude Code setup, VS Code, GitHub.
+- Installing skills (e.g., Upwork optimization, coding helpers).
+- Project structure for AI development.
+
+**Exercises** (Building on Module 1):
+1. Follow video setup (00:10:00 onward). Set up your environment and commit a test repo.
+2. Install 3-5 Claude Skills (e.g., for profile improvement, web building). Test by prompting Claude to generate a simple script or improve a doc.
+3. **Progressive Build**: Create a basic "Personal AI Assistant" prompt collection in your AIOS (e.g., daily briefing generator). Use it to summarize your Opportunity Report.
+
+**Nuances**: Rate limits, token management, local vs. cloud. Backup everything. Non-technical users: Focus on prompting/vibe-coding (describe what you want).
+
+**Milestone**: Functional AIOS with GitHub repo containing your first AI-generated artifact.
+
+### Module 3: Client Acquisition – Outbound/Inbound Systems
+**Context**: Most important part—technical skills alone fail without clients. Upwork for quick wins + cold email for scaling. Build trust via profiles, proposals, calls.
+
+**Key Topics** (Video timestamps ~00:19:50-01:40):
+- Upwork profile optimization (skills, portfolio, location tweaks, using Claude to refine).
+- Cold email sequences (tools like Instantly).
+- Closing on calls: Value demonstration, pricing, handling objections.
+- 3 Levels of Service: Websites → Automations → Full AI Systems.
+
+**Exercises**:
+1. Build/optimize Upwork profile using Claude Skill (as demoed in video). Add placeholder portfolio items from Module 2.
+2. Create 3 sample proposals/cover letters via Claude. Apply to 5-10 beginner gigs ($15-30/hr range initially).
+3. **Build Exercise**: Draft a cold email sequence (5 emails) targeting your niche. Use Claude to personalize based on research from Module 1. Set up a simple tracking sheet.
+4. Practice closing: Role-play a sales call script with Claude as the client.
+
+**Nuances/Edge Cases**: Upwork fees/connects, compliance (no spam), building job success score with small wins first. Inbound via content/SEO later. Location spoofing ethics/legality.
+
+**Milestone**: Optimized profile + first outreach batch sent. Track responses.
+
+### Module 4: Service Delivery – Level 1: Websites & Basic Projects
+**Context**: Start simple to build portfolio/confidence. Claude excels at generating beautiful, functional sites quickly.
+
+**Exercises** (Iterative):
+1. Watch video section ~01:40. Prompt Claude to build a simple business website (e.g., for one of your researched SMBs).
+2. Deploy it (GitHub Pages or similar) and test. Iterate based on "client feedback" simulated by Claude.
+3. **Build**: Enhance with basic features (forms, responsiveness). Document process in your AIOS.
+
+**Nuances**: Design best practices, accessibility, hosting costs. Non-coders: Describe in natural language.
+
+### Module 5: Service Delivery – Level 2: Automations
+**Context**: Automate repetitive tasks (emails, scheduling, lead follow-up) using tools like GoHighLevel + Claude.
+
+**Exercises**:
+1. Build a simple automation (e.g., email responder or calendar booker) integrating APIs or no-code.
+2. Test end-to-end and refine with Claude debugging.
+3. **Progressive**: Combine with your Module 4 website (e.g., lead capture → automation).
+
+**Nuances**: Data privacy (GDPR etc.), integration failures, scalability.
+
+### Module 6: Service Delivery – Level 3: Full AI Systems & Agents
+**Context**: Advanced—voice agents, custom AIOS for clients, complex apps. Automate 90% of your delivery.
+
+**Exercises**:
+1. Follow video ~02:11. Build a full AI agent (e.g., sales follow-up system).
+2. Integrate into a demo environment.
+3. Document ROI (e.g., time/cost savings for client).
+
+**Nuances**: Prompt engineering depth, maintenance, ethical AI use.
+
+### Module 7: Pricing, Operations, Scaling, and Mindset
+**Context**: Value-based pricing ($2k+ projects), automating your biz, handling churn, long-term growth. Video's "What to do now" section.
+
+**Exercises**:
+1. Price sample services using video guidelines (start low, raise with portfolio).
+2. Build internal automations for your business (invoicing, follow-ups).
+3. Review excitement curve—journal progress and adjustments.
+
+**Capstone Project: Launch a Real Revenue-Generating AI Service Business**
+Integrate everything:
+- **Choose/Refine Niche** (from Mod 1).
+- **Build Portfolio** (3+ deliverables: website + automation + full system, using prior exercises).
+- **Client System**: Optimized Upwork + cold email campaign targeting 20-50 prospects.
+- **Deliver & Iterate**: Land 1-2 pilot clients (even low/no-pay for testimonials) or simulate with feedback loops. Use AIOS for 90% automation.
+- **Full Package**: Create a service offering doc, pricing tiers, demo assets, and a basic sales funnel. Deploy your own business website showcasing it.
+- **Launch & Measure**: Go live—track metrics (proposals sent, responses, revenue). Aim for first $1k-$5k in real or pipeline revenue.
+- **Reflection**: Post-mortem on challenges, scalability plan (hire VA? productize?).
+
+**Success Criteria**: Functional client-ready product, outreach executed, at least one "sale" or strong lead, documented process for repeatability.
+
+**Resources & Tips**:
+- Original video as core reference.
+- Claude for all prompting/exercises.
+- Communities: Video's Skool links or free AI entrepreneur groups.
+- Track everything in GitHub/AIOS.
+- Edge Cases: Burnout (schedule breaks), tech changes (stay updated), market saturation (differentiate with results/portfolio).
+- Implications: This model democratizes entrepreneurship but requires consistent execution. Broader impact: Helping businesses adopt AI boosts economy/productivity.
+
+**Next Steps After Course**: Scale to retainers, productize (sell templates/agents), or expand team/tools. Revisit excitement curve—persistence compounds.
+
+This course transforms the video's passive viewing into active, cumulative skill-building for a viable real-world business. Dedicate time weekly, review progress, and use Claude as your co-founder throughout. Start with Module 1 today! If you need templates, specific prompts, or adjustments, provide more details on your background/niche.
