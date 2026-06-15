@@ -124,6 +124,7 @@ If output is vague, generic, could apply to anyone, or recommends paid tools wit
 5. Stack Mind + Body + Wealth when possible
 6. No filler phrases
 7. No em-dashes (use colons, semicolons, parentheses)
+8. Process complex failures through Euclidean asset validation (Definitions -> Axioms -> Proven Steps)
 
 **CLOSING BLOCK (all substantive responses):**
 REMEMBER THIS:
