@@ -1,0 +1,29 @@
+# Session Log: June 17, 2026
+
+## 🚀 Milestones Achieved
+
+### 1. Proposal Forge End-to-End Pipeline Live
+* **Backend Verification:** Verified the `increment_proposals` stored procedure and database schema against the June 16 live specification (`proposals_this_month`, `content`).
+* **Frontend Fixes:** Updated `app/generate/page.tsx` with corrected form-binding states, error handling, and component boundaries. Cleared all compiler syntax errors.
+* **Database Round-Trip:** Confirmed end-to-end functionality. Test proposals generate successfully via the Gemini API and write rows cleanly to the live Supabase `proposals` database.
+
+### 2. AIOS Production Database Initialized
+* Successfully deployed and seeded the 6-table core architecture (`system_state`, `debts`, `active_projects`, `session_logs`, `learning_progress`, and `physical_progress`).
+* Enabled Row Level Security (RLS) across all core tracking environments.
+* **Production Baseline Verified:**
+  * Monthly Income: 11,600 TTD
+  * Monthly Expenses: 11,181 TTD
+  * Calculated Monthly Surplus: 419 TTD
+  * Current Net Worth Baseline: -242,855.83 TTD
+
+---
+
+## 🛠️ Technical Details & Schema Choices
+* **Database Target Strategy:** Ensured that the backend API endpoint (`app/api/generate/route.ts`) targets `proposals_this_month` and `content` exclusively.
+* **Security Model:** Maintained programmatic access configurations via explicit environment variable bindings (`GEMINI_API_KEY`) rather than exposing public unauthenticated write configurations.
+
+---
+
+## 🔮 Next Action Steps
+1. **Monetization Hook:** Set up the Lemon Squeezy subscription variant and replace the frontend URL placeholders (`YOURSTORE`, `YOUR_VARIANT_ID`) in `app/generate/page.tsx`.
+2. **Trigger Build:** Run a final production verification deploy on Vercel to activate the commercial paywall.
