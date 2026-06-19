@@ -84,3 +84,50 @@ Create a log entry in `/logs/course-applications.md` with this exact format:
 - **Tweak**: [What I changed to fit my local context]
 
 **Why this gives max value**: This log becomes your *custom* playbook. After 10 logs, you stop needing the original courses altogether—you just read your own battle-tested adaptations.
+
+## 📚 Courses Folder (`/courses`)
+
+This folder contains plain-text learning resources across **5 critical domains**: Coding, Math, Algorithms, Business, and Finances. All files are `.txt` or `.md`, optimized for direct AI consumption.
+
+### Recommended Folder Structure
+/courses/
+├── coding/          # Python, JS, API patterns, system design
+├── math/            # Linear algebra, statistics, probability
+├── algorithms/      # Data structures, sorting, dynamic programming
+├── business/        # Sales, operations, systems thinking, copywriting
+├── finances/        # Accounting, valuation, break-even, cash flow
+└── daily-question-generator.md  # Your primary engagement tool (v2.0)
+
+---
+
+## 🚀 How to Get the HIGHEST Value from These Courses
+
+Passive reading is a trap. With a **3-hour daily window** and **$419 TTD** surplus, you must extract working code, accurate math, and profitable frameworks—not just facts.
+
+Here is the **Sovereign 3-Step Execution Playbook**:
+
+### Step 1: Always Start with the `daily-question-generator.md`
+**Before you open a single text file**, run the generator with your AI. Feed it the **COURSE DOMAIN** (e.g., "algorithms") and your **ENERGY LEVEL**. 
+- *Why this is #1:* It forces the AI to pre-scan the material and hand you only the most relevant, high-leverage pieces. You stop reading "cover to cover" and start reading to *answer specific questions*. This cuts study time by 60%.
+
+### Step 2: Apply the "Domain-Lock" Rule
+Based on the domain of the course, your answer to the generator's question must produce a *tangible asset*:
+
+| Domain | Tangible Asset to Produce |
+| :--- | :--- |
+| **Coding / Algorithms** | A deployable code snippet. Save it in `/artifacts/code-snippets/`. Immediately integrate it into PropBot or Proposal-Forge. |
+| **Math** | A working formula or spreadsheet. Calculate something real (e.g., user growth, conversion rates) using your own `logs/` data. |
+| **Business** | A reusable prompt or sales script. Save it in `/prompts/sales-*.md`. You will use it in your next client interaction. |
+| **Finances** | An updated P&L or break-even chart. Update your `knowledge/financial-constraints.md` with the new numbers. |
+
+**The Rule**: If you can't build, calculate, or script it, you haven't learned it. Go back to the AI and ask: *"Rewrite this so I can apply it to my actual project right now."*
+
+### Step 3: Log Within 24 Hours (Close the Loop)
+After answering the generator's questions, immediately save your answers in `logs/YYYY-MM-DD-learning.md` using the **exact output format** from the generator. 
+- *Why this is critical:* Your `logs/` folder will quickly become more valuable than the original courses. After 2 weeks, you will stop referencing the course texts entirely—you will just read your own application logs to refresh your memory, saving you dozens of hours.
+
+### Bonus: The "Interdisciplinary Merge" (Your Secret Advantage)
+Since you own all 5 domains, do this once a week: 
+- Take 1 concept from **Finances** and 1 from **Algorithms**. 
+- Prompt your AI: *"Combine the efficiency of this algorithm with the cost-saving principle from this finance module. Design a single daily checklist for my 3-hour work block."*
+This produces unique insights that founders who study siloed topics will never discover.
