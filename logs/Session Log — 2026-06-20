@@ -1,0 +1,65 @@
+# Session Log — 2026-06-20
+
+## Context Pasted?
+- [x] Yes — uploaded `forcastosv2` (build file) + `ForecastOS_Build_Analysis_and_Refactoring_Handoff.md` (Gemini/Kimi handoff from earlier session that hit free-tier limits)
+
+## What We Built/Discussed
+
+Continued the ForecastOS / prediction engine build started this morning, migrated after hitting free-tier limits on the original session. Worked through the Gemini/Kimi handoff doc's prescribed fixes, then identified and fixed two additional bugs surfaced through direct user testing.
+
+### Phase 1: Applied handoff doc fixes (Gemini/Kimi prescribed)
+- PWA manifest + mobile meta tags (base64-inlined, installable on home screen)
+- Touch optimization (`touch-action:manipulation`) on universal CSS selector
+- Soft email gate — added skip button so hard gate doesn't lose mobile users
+- Monetization bridge — three-card section linking to ProposalForge, AIOS, and the $27 book bundle
+- Freedom Calculator widget — live compound-interest calculator using real numbers ($419 surplus, -$242,856 net worth), 4% rule for Freedom Number
+- Origin story card in About tab
+- Formspree wiring — set real form ID (`xvznbvaq`), added missing `Accept: application/json` header (free tier returns HTML redirect without it)
+
+### Phase 2: Legal question
+Confirmed the Freedom Calculator carries no regulatory exposure: it performs arithmetic on user-supplied inputs using the published 4% rule (Bengen, 1994), makes no asset-specific recommendations. Only risk would be adding investment recommendations next to the calculator output — explicitly flagged as something to never do.
+
+### Phase 3: Strategic gap check
+Pasted Kimi's feasibility analysis on the crypto signal interpreter positioning. Cross-referenced against actual codebase to determine what was real vs. proposed. Found: Fear & Greed Index, BTC dominance (raw), 24h volume (raw), and the CSV engine already existed. The 8-metric signal layer, plain-English live verdict, and positioning rewrite did not exist — this was the actual product gap per the strategic analysis, not yet built.
+
+### Phase 4: User-identified critical bug — forecast horizon
+Shastrie identified that forecast output gave a price number with no indication of when that price applied — functionally useless, since the same number could be looked up live on CoinGecko with no forecasting value added.
+
+**Root cause traced:** `config.steps` (the configured forecast horizon) was used internally by the simulation engine then discarded before any of the three output panels rendered.
+
+**Fix built:** `computeHorizonMeta()` — reads the dataset's date column, computes median gap between consecutive dates to auto-detect daily/weekly/monthly/yearly frequency, projects a real calendar target date. Surfaced via a new gold horizon banner at the top of Output stage, rewritten plain-English text ("by March 21, 2026" instead of just a number), and date subtitles on all three scenario cards. Honest failure state if no date column exists. Confirmed this auto-applies to crypto forecasts via the existing `forecastCoin()` CSV pipeline with no extra wiring needed.
+
+### Phase 5: User-reported bug — CoinGecko fetch failure
+Shastrie reported `Error: Market fetch error: Error: Failed to fetch` with no further context.
+
+**Diagnosis:** Web-searched CoinGecko's current rate limits — confirmed unauthenticated public tier allows only 5-15 requests/minute. App was firing two calls (`/global`, `/coins/markets`) simultaneously on every page load with zero retry/backoff/timeout handling.
+
+**Fix built:** `fetchWithRetry()` shared helper — 12s timeout via AbortController, detects HTTP 429 specifically with backoff retry, retries generic network failures once, routed through all four CoinGecko call sites. Sequenced the two page-load calls with a 400ms gap instead of parallel firing. Replaced raw exception messages with diagnosed, user-readable toasts (rate limited / timeout / network down). Confirmed every path retains its existing fallback (demo data, synthetic BTC/ETH, neutral Fear & Greed).
+
+## Key Decisions
+- Prioritized fixing the horizon bug and CoinGecko reliability over building the new signal layer — a broken core feature outranks a new feature, even when the new feature is the strategically "correct" next product move per Kimi's analysis
+- Did not run the 45-minute Quick Signal model-comparison session this round — explicitly deferred, not forgotten
+- Confirmed Freedom Calculator legality before shipping (4% rule is public research, no asset recommendations attached)
+- Left `CONFIG.BOOK_URL` and `CONFIG.PRO_PAYMENT_URL` unset — flagged as the single highest-leverage remaining action since every new monetization surface built this session routes to these two blank values
+
+## Outputs Generated
+- `forecastos_v2_patched.html` (single file, ~3270 lines, all fixes applied)
+- `2026-06-20-forecastos-handoff.md` (this session's handoff capsule)
+- This session log
+
+## Next Actions
+1. Set `CONFIG.BOOK_URL` + `CONFIG.PRO_PAYMENT_URL` to real LemonSqueezy links (10 min) — unblocks every CTA built this session
+2. Deploy `forecastos_v2_patched.html` to GitHub Pages
+3. Submit one test email on the live deployed URL to activate the Formspree endpoint
+4. Run the deferred 45-minute Quick Signal analysis (no code) — identify which model performs best on live BTC 90-day data
+5. Build the 8-metric signal layer + plain-English live verdict — the actual differentiated product per Kimi's analysis
+6. Rewrite landing positioning from "Universal Forecasting Dashboard" to crypto signal interpreter framing
+
+## Blockers
+- None technical. Two config values block monetization from functioning end-to-end, but this is a known, flagged, 10-minute fix — not a blocker on further building.
+
+## Notes for Future Me
+- The handoff doc's prescribed fixes (Phase 1) were necessary but not sufficient — direct user testing (Phases 4-5) surfaced the two bugs that actually mattered for product usability. Lesson: ship the prescribed fixes fast, then test live immediately rather than moving straight to the next planned feature.
+- `fetchWithRetry()` and `computeHorizonMeta()` are now reusable patterns — if PropBot or another project needs resilient external API calls or date-aware forecasting later, copy these two functions rather than rebuilding from scratch.
+- Kimi's strategic repositioning (crypto signal interpreter vs. universal forecasting tool) remains correct and outstanding. Do not let infrastructure fixes become a permanent excuse to avoid the positioning work — set a kill date on Phase 4/5/6 of the Next Actions list above if it stalls again.
+- Lemon squeezey account verification in review
