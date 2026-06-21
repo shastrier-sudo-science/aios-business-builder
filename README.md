@@ -58,6 +58,7 @@ Security-sensitive code (auth, payments, RLS, API keys) never leaves Claude, reg
 | SOVEREIGN v2.1 | In Progress | 2026-07-15 | Finish Supabase system_state integration |
 | ProposalForge | In Progress | TBD (highest priority) | LemonSqueezy env vars + first payment test |
 | PropBot | Portfolio Build | 2026-06-30 | Complete live demo for real estate pitch |
+| ForecastOS | In Progress | TBD | Set BOOK_URL/PRO_PAYMENT_URL once LemonSqueezy clears; build 8-metric signal layer |
 | PREDICT | Shipped | — | Maintenance only |
 | AllFours | Shipped | — | Maintenance only |
 | Upwork Profile | Live | — | Apply to 5 jobs/week |
