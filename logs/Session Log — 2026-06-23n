@@ -1,0 +1,74 @@
+# Session Log — 2026-06-23
+
+## Context Pasted?
+- [x] Yes — SOVEREIGN CORE v2.1 + full project file context
+
+## What We Built/Discussed
+
+### Fiverr Lead (Ryan D.)
+- First Fiverr inquiry received on ProposalForge gig
+- Drafted response strategy: qualify with 3 questions before delivering
+- Confirmed correct flow: send Custom Offer via Fiverr chat before any delivery
+- Fiverr escrow handles payment — no awkward money conversation needed
+
+### ProposalForge Prompt System (v1.0)
+- Built complete ProposalForge master prompt from scratch
+- 5-step execution: Problem Diagnosis → Opening Options → Proposal → Self-Audit → Feedback Capture
+- Self-improvement loop defined: log every outcome to PropForge Log Google Doc, paste every 5 into Claude, extract one new rule, add to CORE DOCTRINE
+- Saved as: prompts/proposalforge-v1.md (action item — not yet committed)
+
+### ProposalForge App — generate/route.ts Upgrade
+- Replaced basic buildPrompt() with full ProposalForge system
+- SYSTEM_PROMPT now contains full doctrine with zero-AI-tells rules
+- buildPrompt() now accepts 4 new optional fields: platform, bidder_background, bid_amount, tone
+- API now returns 4 fields: proposal, missed_signal, strengthen_with, follow_up
+- JSON parse uses regex fallback pattern (LLM output safety standard)
+- Model updated to claude-sonnet-4-6
+- Frontend note: must update dashboard to read data.proposal not data.content
+
+### ProposalForge App — Self-Improvement Loop
+- SQL schema additions: outcome + platform + score_avg columns on proposals table
+- New table: forge_rules — stores both system doctrine and learned rules
+- Seeded 5 starting doctrine rules into forge_rules
+- generate/route.ts: buildSystemPrompt() now assembles system prompt live from forge_rules table
+- New route: app/api/outcome/route.ts — logs hired/no_response/rejected per proposal
+- New route: app/api/learn/route.ts — analyzes last 20 outcomes, extracts one new rule, writes to forge_rules
+- Compounding mechanism: win rate data feeds rule generation, rules feed every future generation
+
+### Outreach
+- Sent YouTube script writing proposal to Achuth Ramesh (YouTuber)
+- File reference: clients/Outreach to Achuth (not loaded this session — add details manually)
+
+## Key Decisions
+- ProposalForge system prompt is now database-driven, not hardcoded
+- Learning loop requires minimum 3 outcomes before running (enforced server-side)
+- forge_rules table uses RLS policy that blocks all direct client access — service role only
+- Outcome logging is user-scoped — each user's rules learned from their own data only
+
+## Outputs Generated
+- ProposalForge master prompt (copy-paste version for manual Claude use)
+- Updated app/api/generate/route.ts (full file, paste-ready)
+- SQL migration block for self-improvement schema
+- app/api/outcome/route.ts (full file, paste-ready)
+- app/api/learn/route.ts (full file, paste-ready)
+- This session log
+
+## Next Actions (Priority Order)
+1. Commit prompts/proposalforge-v1.md to AIOS repo
+2. Run SQL migration block in Supabase SQL editor
+3. Replace app/api/generate/route.ts via GitHub web editor
+4. Create app/api/outcome/route.ts via GitHub web editor
+5. Create app/api/learn/route.ts via GitHub web editor
+6. Update frontend dashboard to read data.proposal instead of data.content
+7. Send Ryan D. a Custom Offer on Fiverr
+8. Add Achuth Ramesh outreach details to this log manually
+
+## Blockers
+- clients/Outreach to Achuth file not loaded this session — details unknown
+- Frontend UI update for new API response fields not yet done
+
+## Notes for Future Me
+- forge_rules RLS is set to FOR ALL USING (FALSE) — only service role key bypasses this. Do not change this policy.
+- The learn route needs minimum 3 outcomes. With only Ryan as first client, run it after 3 proposals are logged with real outcomes.
+- JSON regex fallback pattern is now standard across generate and learn routes — use it in all future AI call routes.
+- Achuth Ramesh is a YouTube script writing lead — check clients/Outreach to Achuth for status and next action.
