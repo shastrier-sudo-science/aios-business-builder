@@ -1,0 +1,144 @@
+Proposal Forge — Session Log
+Date: 2026-06-25 Session: Proposal Forge Frontend & API Updates
+________________________________________
+Changes Made
+1. Expanded Service Type Dropdown (25 categories)
+File: app/generate/page.tsx - Replaced 5 hardcoded categories with 25 Fiverr/Upwork-aligned options - Updated default selection from “Web Design” → “Web Design & Development” - Categories now cover: AI/ML, Data Science, VA/Admin, Legal, Accounting, E-commerce, Music/Audio, Engineering, Personal Development, and more
+2. Added Provider Background Input
+File: app/generate/page.tsx - New textarea: “YOUR BACKGROUND & STRENGTHS” - Placeholder guides users to input experience, skills, certifications, past projects - Added to form state as providerInfo - Sent to API as provider_info in POST body
+3. Updated API Route to Consume Provider Info
+File: app/api/generate/route.ts - buildPrompt() now accepts optional provider_info parameter - Injects provider background into Claude prompt with instruction: “weave naturally, show don’t tell, never list as bio” - Added constraint: “If provider background is provided, weave their relevant strengths into the proposal naturally. Let the expertise come through in the approach, not in a credentials dump.” - Body parsing updated to accept provider_info from frontend
+________________________________________
+Database Impact
+No schema changes required. - proposals table: provider_info is input context for AI only; generated content already incorporates it - forge_rules table: Unchanged - profiles table: Unchanged
+Optional future enhancement: Add provider_info column to proposals table to enable re-generation, outcome correlation analysis, or saved profile templates.
+________________________________________
+Files Modified
+File	Change
+app/generate/page.tsx	25 categories + provider background textarea
+app/api/generate/route.ts	Prompt builder accepts & weaves provider_info
+________________________________________
+Verification Checklist
+•	☐ Frontend dropdown renders all 25 categories correctly
+•	☐ Provider background textarea appears below Pain Points
+•	☐ API route accepts provider_info without 400 error
+•	☐ Claude prompt includes provider section when field is filled
+•	☐ Empty provider field does not break generation (optional field)
+•	☐ Free limit logic (FREE_LIMIT = 3) still enforced
+•	☐ Proposal save to Supabase still works
+•	☐ increment_proposals RPC still called for free users
+________________________________________
+Next Actions
+1.	Deploy updated frontend + API to Vercel
+2.	Test end-to-end: generate proposal with provider background filled
+3.	Verify Claude output weaves strengths naturally (not credential dump)
+4.	Continue with outcome buttons implementation (pending from previous handoff)
+5.	Run first learning loop once 3+ outcomes are logged
+
+Proposal Forge — Handoff Document
+Date: 2026-06-25 Status: Core engine operational. Proposal generation live with Claude Sonnet 4. Learning loop architecture implemented. Outcome tracking API ready. Frontend needs outcome buttons.
+________________________________________
+What Works
+1. Proposal Generation (app/api/generate/route.ts)
+•	Model: claude-sonnet-4-20250514 (Claude Sonnet 4)
+•	System prompt: Dynamically assembled from forge_rules table in Supabase
+•	Fallback doctrine: Hardcoded if DB read fails — generation never breaks
+•	Rate limit: 1 free proposal/month, tracked via profiles.proposals_this_month
+•	Database insert: Stores user_id, client_name, project_type, content, platform, score_avg
+2. Learning Loop (app/api/learn/route.ts)
+•	Trigger: POST to /api/learn (manual button or every 5 proposals)
+•	Minimum data: 3 proposals with non-pending outcomes
+•	Process: Reads last 20 proposals → sends to Claude with analysis prompt → extracts one new rule → writes to forge_rules with source = 'learned'
+•	Result: Next proposal generation automatically uses the new rule
+3. Outcome Logging (app/api/outcome/route.ts)
+•	Endpoint: POST /api/outcome
+•	Body: { proposal_id, outcome } where outcome is hired | no_response | rejected
+•	Security: Verifies proposal belongs to requesting user before updating
+•	Status: API ready. Frontend buttons not yet implemented.
+________________________________________
+Database Schema
+proposals table (existing + new columns)
+Column	Type	Default
+id	UUID	gen_random_uuid()
+user_id	UUID	—
+client_name	text	—
+project_type	text	—
+content	text	—
+outcome	text	'pending'
+platform	text	'Freelancer.com'
+score_avg	numeric(3,1)	NULL
+created_at	timestamptz	NOW()
+forge_rules table (new)
+Column	Type	Default
+id	UUID	gen_random_uuid()
+rule	text	—
+source	text	'system' \| 'learned'
+win_rate_at_creation	numeric(4,1)	NULL
+active	boolean	TRUE
+created_at	timestamptz	NOW()
+RLS: forge_rules locked to service-role only.
+Seeded system rules (5): 1. Clients hire the person who understood their problem first 2. Never open with “I” 3. Credentials come AFTER demonstrating understanding 4. End with one expert question 5. Zero AI tells (no excited, leverage, deliverables, I would love to)
+________________________________________
+Environment Variables
+Variable	Required	Notes
+ANTHROPIC_API_KEY	Yes	Claude Sonnet 4 API key
+NEXT_PUBLIC_SUPABASE_URL	Yes	Supabase project URL
+NEXT_PUBLIC_SUPABASE_ANON_KEY	Yes	Supabase anon key
+SUPABASE_SERVICE_ROLE_KEY	Yes	For server-side operations
+GEMINI_API_KEY	No	Reserved for future testing toggle
+________________________________________
+Frontend Status
+Working
+•	Proposal generation form (/generate)
+•	Dashboard (/dashboard)
+•	Auth (Supabase Auth)
+Missing (needed for launch)
+•	Outcome buttons below each generated proposal (Hired / No Response / Rejected)
+•	“Run Learning Loop” button on dashboard (visible when ≥3 proposals with outcomes)
+•	Stripe integration for paid tier ($9/month or $27 one-time)
+•	Landing page with founder story and CTA
+________________________________________
+Known Issues & Resolutions
+Issue	Root Cause	Fix Applied
+Gemini 404	Model string mismatch (gemini-1.5-flash vs gemini-1.5-flash-latest)	Switched to Claude Sonnet 4
+Claude 404	Deprecated model (claude-3-5-sonnet-20241022)	Updated to claude-sonnet-4-20250514
+Build cache stale	Vercel restored old dependencies	Force redeploy without cache
+Module not found	@google/generative-ai not in package.json	npm install + commit lockfile
+String parsing errors	.join('\n') split across lines in paste	Rewrote with single-line escapes
+________________________________________
+Next Actions (Priority Order)
+1.	Add outcome buttons to proposal display — enables learning loop data collection
+2.	Generate 3 proposals + log outcomes — triggers first learning loop run
+3.	Add “Run Learning Loop” button — surfaces the compounding engine to users
+4.	Stripe checkout integration — monetize the free tier limit
+5.	Landing page — founder story + CTA to /generate
+6.	Newsletter integration — every issue ends with ProposalForge CTA
+________________________________________
+Architecture Diagram
+User submits job details
+        ↓
+/api/generate reads forge_rules from Supabase
+        ↓
+Builds dynamic system prompt (base + doctrine + learned rules)
+        ↓
+Claude Sonnet 4 generates proposal
+        ↓
+Stores in proposals table (outcome = 'pending')
+        ↓
+User sends proposal → logs outcome via /api/outcome
+        ↓
+Every 3+ outcomes: /api/learn analyzes patterns
+        ↓
+Claude extracts one new rule → writes to forge_rules
+        ↓
+Next generation reads updated rules automatically
+        ↓
+Win rate improves → repeat
+________________________________________
+Contact / Context
+•	Founder: Shastrie Ramdhanie, Trinidad
+•	Brand: AI Sovereignty Movement
+•	Assets: “Hacking Your Mindset” (2023), Daily Newsletter, AllFours game
+•	Constraints: $0 budget, 3-hour daily window, AI does 80-90% of work
+•	Goal: Financial independence by end of 2026
+
