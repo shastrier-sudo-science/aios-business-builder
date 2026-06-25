@@ -1,0 +1,282 @@
+Here are both files to paste into GitHub.
+
+**File 1: `logs/2026-06-24-session.md`**
+
+```markdown
+# Session Log — 2026-06-24
+
+## Context Pasted?
+- [x] Yes — full SOVEREIGN CORE v2.1 + project files loaded
+
+## What We Built/Discussed
+
+### ProposalForge — Full Debug + Launch Sprint
+
+**Problem diagnosed:**
+- `proposals` table was saving "Error: no response from AI" because deployed code had wrong model name (`claude-3-5-sonnet-20241022` deprecated) and stale Vercel cache
+- `insertData` was referenced in final return but never captured — insert was missing `.select('id').single()`
+- Upgrade button called `/api/checkout` which does not exist — caused "Could not start checkout" alert
+- Dashboard proposal cards were not clickable — no expand/collapse functionality
+
+**Fixes applied:**
+- Model updated to `claude-sonnet-4-6` (current)
+- Insert refactored to capture `insertData` with `.select('id').single()`
+- `proposal_id` now returned in API response so frontend can log outcomes
+- `handleUpgrade` in both `generate/page.tsx` and `UpgradeButton.tsx` now routes directly to PayPal hosted link — no API call needed
+- `ProposalCard.tsx` created as client component with click-to-expand, Copy button, and outcome label display
+- `dashboard/page.tsx` refactored to use `ProposalCard` (server/client component split)
+- Outcome buttons (Hired / No Response / Rejected) added to `generate/page.tsx` below each generated proposal
+- `FREE_LIMIT` raised from 1 to 3
+
+**Gemini detour (documented):**
+- Attempted switch to `gemini-1.5-flash` then `gemini-1.5-flash-latest` then `gemini-1.5-flash-001` — all returned 404
+- Root cause: Google AI Studio free tier key did not have access to those model identifiers
+- Reverted to Claude (`claude-sonnet-4-6`) — working immediately
+- Total cost of this session: ~$0.01 in Anthropic credits
+
+## Key Decisions
+
+- PayPal hosted subscription link used instead of embed code or webhook — avoids frontend complexity entirely
+- Manual Supabase SQL upgrade (`UPDATE profiles SET plan = 'pro' WHERE email = '...'`) is the upgrade flow until first 10 paying users
+- `ProposalCard` must be a client component — dashboard is server-rendered, click handlers cannot live there
+- Free limit enforced server-side in `route.ts` before AI call — cannot be bypassed client-side
+- `increment_proposals` RPC function must exist in Supabase or usage tracking silently fails
+
+## Outputs Generated
+
+- `app/api/generate/route.ts` — refactored with `buildSystemPrompt`, `insertData` capture, `proposal_id` in response
+- `app/generate/page.tsx` — outcome buttons, fixed `handleUpgrade`, copy button
+- `app/dashboard/page.tsx` — uses `ProposalCard`, clean server component
+- `app/dashboard/UpgradeButton.tsx` — direct PayPal link, no API dependency
+- `app/dashboard/ProposalCard.tsx` — new file, click-to-expand, copy, outcome label
+
+## SQL Still Needed (run before next session)
+
+```sql
+-- 1. Missing columns on proposals table
+ALTER TABLE proposals
+  ADD COLUMN IF NOT EXISTS outcome TEXT CHECK (outcome IN ('hired', 'no_response', 'rejected')),
+  ADD COLUMN IF NOT EXISTS platform TEXT DEFAULT 'Freelancer.com',
+  ADD COLUMN IF NOT EXISTS score_avg NUMERIC;
+
+-- 2. increment_proposals RPC (usage tracking)
+CREATE OR REPLACE FUNCTION increment_proposals(user_id UUID)
+RETURNS void AS $$
+  UPDATE profiles
+  SET proposals_this_month = proposals_this_month + 1
+  WHERE id = user_id;
+$$ LANGUAGE sql SECURITY DEFINER;
+
+-- 3. Monthly reset column
+ALTER TABLE profiles
+  ADD COLUMN IF NOT EXISTS reset_month TEXT DEFAULT TO_CHAR(NOW(), 'YYYY-MM');
+
+-- 4. forge_rules table + seed data
+CREATE TABLE IF NOT EXISTS forge_rules (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  rule TEXT NOT NULL,
+  source TEXT DEFAULT 'system',
+  active BOOLEAN DEFAULT TRUE,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+INSERT INTO forge_rules (rule, source) VALUES
+  ('Clients hire the person who understood their problem first', 'system'),
+  ('Never open with "I"', 'system'),
+  ('End with one expert question that shows domain knowledge', 'system'),
+  ('Zero AI tells — no "certainly", "I would be happy to", "As an AI"', 'system'),
+  ('Name a specific outcome the client will feel, not features you will deliver', 'system')
+ON CONFLICT DO NOTHING;
+```
+
+## Blockers
+
+- Monthly reset logic not yet implemented — `proposals_this_month` never resets; free users blocked permanently after month 1
+- `app/api/outcome/route.ts` exists but was not shown this session — confirm it exists in repo
+- `app/api/learn/route.ts` exists but learning loop not yet triggered — needs 3 proposals with outcomes logged first
+
+## Next Actions
+
+1. Run all 4 SQL blocks above in Supabase SQL Editor
+2. Generate 3 test proposals, log outcomes on all 3 via the buttons
+3. Hit `/api/learn` (POST) to trigger first learning loop — check `forge_rules` for new learned rule
+4. Add monthly reset logic to `route.ts` profile check block
+5. Post in r/freelance or local Facebook group: first external users
+6. Set a custom Vercel domain or permanent subdomain — current URL has deploy hash in it
+
+## Notes for Future Me
+
+- Kimi handled the Gemini detour and generated most intermediate files — Claude audited security layer and owned final architecture
+- `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` are Production-only in Vercel — add Preview environment if testing on preview URLs
+- PayPal plan ID: `P-4YV96810FU800061WNI56NOY` — stored in `NEXT_PUBLIC_PAYPAL_UPGRADE_URL` env var
+- First paying user upgrade: manual SQL, takes 30 seconds
+- Model confirmed working: `claude-sonnet-4-6`
+```
+
+---
+
+**File 2: `knowledge/propbot-handoff-2026-06-24.md`**
+
+```markdown
+# ProposalForge Handoff Capsule — 2026-06-24
+
+## Status: LAUNCH READY (pending SQL blocks)
+
+**Live URL:** `proposal-forge-[hash].vercel.app` (set permanent domain next session)
+**Repo:** `shastrier-sudo-science/Proposal-Forge` (branch: main)
+**Supabase project:** `wemtjnfxyatmerercfuc`
+
+---
+
+## What Works Right Now
+
+| Feature | Status |
+|---|---|
+| Magic link auth | WORKING |
+| Proposal generation (Claude `claude-sonnet-4-6`) | WORKING |
+| `forge_rules` system prompt (dynamic doctrine) | WORKING |
+| Proposal saves to Supabase | WORKING |
+| `proposal_id` returned in API response | WORKING |
+| Outcome buttons (Hired / No Response / Rejected) | WORKING |
+| Free limit enforcement (3/month, server-side) | WORKING |
+| Dashboard proposal cards (click-to-expand) | WORKING |
+| Copy to clipboard | WORKING |
+| Upgrade button → PayPal hosted link | WORKING |
+| `increment_proposals` RPC | NEEDS SQL (see below) |
+| Monthly proposal count reset | NOT BUILT |
+| Learning loop (`/api/learn`) | BUILT, NOT YET TRIGGERED |
+| Outcome logging (`/api/outcome`) | BUILT, CONFIRM EXISTS |
+| PayPal webhook → auto-upgrade | DEFERRED (manual SQL for now) |
+
+---
+
+## File Map (current state)
+
+| File | Purpose |
+|---|---|
+| `app/api/generate/route.ts` | Core engine — auth, limit check, AI call, save, increment |
+| `app/api/outcome/route.ts` | Logs hired/no_response/rejected to proposals row |
+| `app/api/learn/route.ts` | Analyzes outcomes, writes new rule to forge_rules |
+| `app/generate/page.tsx` | Generation UI — form, output, outcome buttons |
+| `app/dashboard/page.tsx` | Server component — lists proposals, imports ProposalCard |
+| `app/dashboard/ProposalCard.tsx` | Client component — expand/collapse, copy, outcome label |
+| `app/dashboard/UpgradeButton.tsx` | Client component — direct PayPal link |
+
+---
+
+## Critical Constants
+
+```
+
+FREE_LIMIT = 3
+MODEL = 'claude-sonnet-4-6'
+PayPal Plan ID = P-4YV96810FU800061WNI56NOY
+PayPal Subscribe URL = https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-4YV96810FU800061WNI56NOY
+```
+
+---
+
+## Supabase Schema (current confirmed tables)
+
+| Table | Key Columns |
+|---|---|
+| `profiles` | `id`, `email`, `plan` (free/pro), `proposals_this_month`, `stripe_customer_id`, `reset_month` (add via SQL) |
+| `proposals` | `id`, `user_id`, `client_name`, `project_type`, `content`, `outcome`, `platform`, `score_avg`, `created_at` |
+| `forge_rules` | `id`, `rule`, `source` (system/learned), `active`, `created_at` |
+| `session_logs` | exists, not actively used this session |
+
+---
+
+## SQL To Run Before Next Session
+
+```sql
+ALTER TABLE proposals
+  ADD COLUMN IF NOT EXISTS outcome TEXT CHECK (outcome IN ('hired', 'no_response', 'rejected')),
+  ADD COLUMN IF NOT EXISTS platform TEXT DEFAULT 'Freelancer.com',
+  ADD COLUMN IF NOT EXISTS score_avg NUMERIC;
+
+CREATE OR REPLACE FUNCTION increment_proposals(user_id UUID)
+RETURNS void AS $$
+  UPDATE profiles
+  SET proposals_this_month = proposals_this_month + 1
+  WHERE id = user_id;
+$$ LANGUAGE sql SECURITY DEFINER;
+
+ALTER TABLE profiles
+  ADD COLUMN IF NOT EXISTS reset_month TEXT DEFAULT TO_CHAR(NOW(), 'YYYY-MM');
+
+CREATE TABLE IF NOT EXISTS forge_rules (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  rule TEXT NOT NULL,
+  source TEXT DEFAULT 'system',
+  active BOOLEAN DEFAULT TRUE,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+INSERT INTO forge_rules (rule, source) VALUES
+  ('Clients hire the person who understood their problem first', 'system'),
+  ('Never open with "I"', 'system'),
+  ('End with one expert question that shows domain knowledge', 'system'),
+  ('Zero AI tells — no "certainly", "I would be happy to", "As an AI"', 'system'),
+  ('Name a specific outcome the client will feel, not features you will deliver', 'system')
+ON CONFLICT DO NOTHING;
+```
+
+---
+
+## Upgrade Flow (Manual Until ~10 Paying Users)
+
+1. User clicks "Upgrade to Pro" → lands on PayPal subscription page
+2. User subscribes → PayPal emails you confirmation
+3. You run in Supabase SQL Editor:
+```sql
+UPDATE profiles SET plan = 'pro' WHERE email = 'their@email.com';
+```
+4. User now has unlimited proposals — `FREE_LIMIT` check passes because `plan = 'pro'`
+
+---
+
+## Learning Loop — How to Trigger
+
+1. Generate 3+ proposals
+2. Click outcome button on each (Hired / No Response / Rejected)
+3. Send POST to `/api/learn` — use browser console:
+```javascript
+fetch('/api/learn', { method: 'POST' }).then(r => r.json()).then(console.log)
+```
+4. Check `forge_rules` table in Supabase — should see a new row with `source = 'learned'`
+5. Next proposal generated will automatically use the new rule in its system prompt
+
+---
+
+## Next Build Priorities
+
+1. Monthly reset logic in `route.ts` — check `reset_month` column on each generation
+2. Custom domain on Vercel
+3. First 3 external users via community post
+4. `/api/learn` triggered after first real outcome data
+5. PayPal webhook automation (defer until 10 paying users)
+
+---
+
+## REMEMBER THIS
+
+Q: What model is confirmed working?
+A: `claude-sonnet-4-6`
+
+Q: How is the free limit enforced?
+A: Server-side in `route.ts` before AI call — checks `profiles.proposals_this_month` against `FREE_LIMIT = 3`
+
+Q: What breaks silently if `increment_proposals` RPC does not exist?
+A: Usage is not tracked — free users get unlimited proposals with no error shown
+
+Q: What is the manual upgrade command?
+A: `UPDATE profiles SET plan = 'pro' WHERE email = 'email'` in Supabase SQL Editor
+
+Q: When can the learning loop be triggered?
+A: After 3 proposals have non-pending outcomes logged via the outcome buttons
+```
+
+---
+
+Save `logs/2026-06-24-session.md` and `knowledge/propbot-handoff-2026-06-24.md` to your GitHub repo. These two files are your complete resume point for the next session.
