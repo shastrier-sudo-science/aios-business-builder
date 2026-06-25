@@ -1,0 +1,3575 @@
+# Comprehensive Programming Course: From Novice to Software Architect
+
+## Course Overview
+
+**Title:** Mastering Software Development: From Beginner to Architect  
+**Duration:** 12 Modules (Self-paced, approximately 6-9 months)  
+**Project:** Build a complete, sellable 3D Board Game Application using Java and JavaFX  
+**Target Audience:** Complete beginners with no programming experience
+
+---
+
+## MODULE 1: Setting Up Your Development Environment & Understanding the Big Picture
+
+### Learning Objectives
+- Set up a professional development workstation
+- Understand what software engineering is and why it matters
+- Install and configure all necessary tools
+- Create your first "Hello World" program
+
+### Topics Covered
+
+#### 1.1 What is Software Engineering?
+- The difference between programming and software engineering
+- Why software engineering matters for professional projects
+- The software development life cycle overview
+- Basic terminology: requirements, design, development, testing, deployment, maintenance
+
+**Real-World Example:** Think of building a house vs. just stacking bricks. Software engineering is the architectural plan, foundation, plumbing, electrical—everything that makes the house functional and maintainable.
+
+#### 1.2 Setting Up Your Workstation
+- Hardware requirements (64-bit computer, 8GB+ RAM recommended)
+- Downloading and installing Java Development Kit (JDK)
+- Installing NetBeans IDE (Integrated Development Environment)
+- Installing new media tools (GIMP for graphics, Audacity for audio)
+
+**Practice:** Follow the step-by-step installation guide for your operating system. Verify everything works by running a simple "Hello World" application.
+
+#### 1.3 Your First Java Program
+- Understanding the main() method
+- System.out.println()
+- Compiling and running your code
+- Understanding basic Java syntax
+
+**Practice:** Write a program that prints "Hello, World!" and your name. Then modify it to print a short message about what you hope to build.
+
+#### 1.4 Understanding Project Structure
+- What is a project?
+- Source folders, packages, and classes
+- The JavaFXGame project template
+
+**Lab Activity:** Create your first JavaFX project in NetBeans. Run it and see the blank window.
+
+---
+
+## MODULE 2: Programming Fundamentals - Variables, Data Types, and Operators
+
+### Learning Objectives
+- Understand and use different data types
+- Work with variables and constants
+- Use operators to manipulate data
+- Write simple programs with input and output
+
+### Topics Covered
+
+#### 2.1 Understanding Data Types
+- Primitive types: int, double, boolean, char
+- Reference types: String, Arrays
+- When to use each type
+- Default values
+
+**Real-World Example:** 
+- int = number of players (whole numbers)
+- double = player score (can have decimals)
+- String = player name (text)
+- boolean = is game over? (true/false)
+
+**Practice:** Create a program that declares variables for a game character's name, health, score, and whether they are alive. Print these values.
+
+#### 2.2 Variables and Constants
+- Declaring variables
+- Naming conventions (camelCase)
+- Initialization and assignment
+- Final variables (constants)
+- Scope basics
+
+**Practice:** Create constants for maximum health (100), maximum score (9999), and game title. Use them in your program.
+
+#### 2.3 Working with Operators
+- Arithmetic operators: +, -, *, /, %
+- Assignment operators: =, +=, -=, *=, /=
+- Comparison operators: ==, !=, <, >, <=, >=
+- Logical operators: &&, ||, !
+- Increment/decrement: ++, --
+
+**Practice:** Build a simple calculator that adds two numbers, multiplies them, and calculates the remainder when divided by another number.
+
+#### 2.4 Input and Output
+- System.out.println() and System.out.print()
+- Scanner for user input
+- String concatenation
+
+**Practice:** Create a program that asks the user for their name and age, then prints a greeting. "Hello [name], you are [age] years old."
+
+#### 2.5 Code Documentation
+- Single-line comments
+- Multi-line comments
+- Javadoc comments
+- Why documentation matters
+
+**Lab Activity:** Write a program that calculates:
+1. The area and perimeter of a rectangle (ask user for length and width)
+2. The area and circumference of a circle (ask user for radius, use Math.PI)
+3. Display all results in a formatted way
+
+---
+
+## MODULE 3: Control Flow - Making Decisions and Loops
+
+### Learning Objectives
+- Use conditional statements to control program flow
+- Use loops for repetition
+- Understand and avoid infinite loops
+- Write programs that make decisions
+
+### Topics Covered
+
+#### 3.1 Decision Making with If-Else
+- The if statement
+- If-else
+- Else-if ladder
+- Nested if statements
+- Common pitfalls
+
+**Real-World Example:** In a game, if a player's health drops to zero, they're dead. Otherwise, they continue playing.
+
+**Practice:** Write a program that:
+1. Asks for a number and tells if it's positive, negative, or zero
+2. Determines if a year is a leap year
+3. Grades a test score (A: 90-100, B: 80-89, C: 70-79, D: 60-69, F: below 60)
+
+#### 3.2 Switch Statements
+- When to use switch vs. if-else
+- Break and default cases
+- Switch with strings (Java 7+)
+
+**Practice:** Create a menu system for a game using switch. Options: 1-Start Game, 2-View Instructions, 3-View High Scores, 4-Exit.
+
+#### 3.3 Loops: While and Do-While
+- While loop syntax and use cases
+- Do-while loop syntax and use cases
+- When each is appropriate
+- Avoiding infinite loops
+
+**Practice:** 
+1. Write a program that guesses a number between 1-100 using while (user says higher/lower)
+2. Use do-while to create a menu that repeats until user chooses exit
+
+#### 3.4 Loops: For and For-Each
+- For loop syntax
+- Counting loops
+- Nested loops
+- For-each (enhanced for) loops
+- Loop control: break and continue
+
+**Practice:** 
+1. Print a multiplication table (1-10)
+2. Print a triangle pattern with stars
+3. Calculate the sum of all numbers from 1 to N
+
+#### 3.5 Building a Dice Game
+- Combining everything learned
+- Random number generation (java.util.Random)
+- Basic game loop
+
+**Lab Activity:** Build a "Guess the Number" game:
+1. Computer picks a random number (1-100)
+2. Player guesses
+3. Computer says "higher" or "lower"
+4. Count attempts
+5. When guessed correctly, show the number of attempts
+6. Ask if player wants to play again
+
+---
+
+## MODULE 4: Object-Oriented Programming - Classes and Objects
+
+### Learning Objectives
+- Understand object-oriented programming principles
+- Create and use classes and objects
+- Understand encapsulation
+- Use constructors and methods
+
+### Topics Covered
+
+#### 4.1 Introduction to OOP
+- What is object-oriented programming?
+- The four pillars: Encapsulation, Inheritance, Polymorphism, Abstraction
+- Classes vs. Objects
+- Real-world analogy: A class is a blueprint, an object is the actual thing built from it
+
+**Real-World Example:** A "Car" class is the blueprint. Your specific red Toyota Corolla is an object (instance) of the Car class.
+
+#### 4.2 Creating Classes
+- Class declaration
+- Instance variables (fields)
+- Methods
+- Constructor methods
+- Creating objects with new
+
+**Practice:** Create a "Player" class with:
+- Fields: name, health, score, level
+- Constructor that initializes a player
+- Methods: takeDamage(), heal(), addScore(), levelUp()
+
+#### 4.3 Encapsulation
+- Private vs. public
+- Getters and setters
+- Why encapsulation matters
+- Data hiding
+
+**Practice:** Modify your Player class to use private fields with public getters and setters. Ensure health can't go below 0 or above maxHealth.
+
+#### 4.4 Methods in Depth
+- Method parameters
+- Return types
+- Overloading methods
+- Static vs. instance methods
+
+**Practice:** Add overloaded methods to Player:
+- heal() - heals full amount
+- heal(int amount) - heals specific amount
+
+#### 4.5 Object Composition
+- Using objects inside other objects
+- Has-a relationships
+- Building more complex objects
+
+**Practice:** Create an "Inventory" class with an ArrayList of items. Add inventory to your Player class. Add methods to add/remove items.
+
+#### 4.6 Building a Board Game Base
+- Design game piece class
+- Design board square class
+- Basic game mechanics
+
+**Lab Activity:** Build the foundation of your board game:
+1. Create a "BoardSquare" class with position, type, description
+2. Create a "GamePiece" class with position and player reference
+3. Create a "Board" class with a 2D array of BoardSquare objects
+4. Print a simple text representation of the board
+
+---
+
+## MODULE 5: Inheritance and Interfaces
+
+### Learning Objectives
+- Use inheritance to create class hierarchies
+- Understand polymorphism
+- Use abstract classes and interfaces
+- Design flexible, reusable code
+
+### Topics Covered
+
+#### 5.1 Inheritance Basics
+- Extending classes
+- Superclass and subclass
+- The super keyword
+- Overriding methods
+
+**Real-World Example:** A "Square" is a "Shape". A "Rectangle" is also a "Shape". You can have a Shape class with subclasses for each specific shape.
+
+**Practice:** Create a Shape class with area() and perimeter() methods. Create subclasses: Circle, Rectangle, Triangle. Override the methods.
+
+#### 5.2 Polymorphism
+- What is polymorphism?
+- Method overriding and dynamic binding
+- Polymorphic references
+- The instanceof operator
+
+**Practice:** Create an array of Shapes (Circle, Rectangle, Triangle). Loop through and calculate the area of each without knowing their specific type.
+
+#### 5.3 Abstract Classes
+- When to use abstract classes
+- Abstract methods
+- Making classes abstract
+
+**Practice:** Make Shape abstract. Add an abstract getArea() method.
+
+#### 5.4 Interfaces
+- What is an interface?
+- Implementing interfaces
+- Multiple interface implementation
+- Interface constants
+
+**Practice:** Create "Drawable" and "Movable" interfaces. Have your Shapes implement Drawable. Add a "GameObject" interface that extends both.
+
+#### 5.5 Inheritance Design Patterns
+- Composition over inheritance
+- When to use inheritance vs. composition
+- Common pitfalls
+
+**Lab Activity:** Design the game object hierarchy for your board game:
+1. Create an abstract "GameObject" class
+2. Subclasses: Player, BoardSquare, GamePiece
+3. Create interfaces: Movable, Drawable, Interactable
+4. Implement appropriate interfaces in your classes
+
+---
+
+## MODULE 6: Collections, Exceptions, and File I/O
+
+### Learning Objectives
+- Use Java collections to store and manipulate data
+- Handle exceptions gracefully
+- Read from and write to files
+- Save and load game state
+
+### Topics Covered
+
+#### 6.1 Java Collections Framework
+- ArrayList
+- LinkedList
+- HashSet and TreeSet
+- HashMap and TreeMap
+- Iterators
+
+**Real-World Example:** Use ArrayList for a player's inventory, HashMap for a high score table (player name -> score).
+
+**Practice:** 
+1. Use ArrayList to store a list of players
+2. Use HashMap to store game settings (key-value pairs)
+3. Use HashSet to track visited board squares
+
+#### 6.2 Exception Handling
+- Try-catch blocks
+- Throwing exceptions
+- Custom exceptions
+- Try-with-resources
+
+**Practice:** Add exception handling to your code when:
+1. Reading user input (handle invalid input)
+2. Accessing an array out of bounds
+3. Opening a file that might not exist
+
+#### 6.3 File I/O Basics
+- Reading text files
+- Writing text files
+- Serialization (object saving)
+- Using BufferedReader and FileWriter
+
+**Practice:** 
+1. Save a high score list to a file
+2. Load high scores from a file
+3. Save the game state when the user quits
+
+#### 6.4 Working with Dates and Time
+- LocalDate, LocalTime, LocalDateTime
+- Formatting dates
+- Calculating time differences
+
+**Lab Activity:** Enhance your board game:
+1. Implement a HighScoreManager using HashMap
+2. Save high scores to a text file
+3. Load high scores on startup
+4. Track game start time and duration
+5. Handle file errors gracefully
+
+---
+
+## MODULE 7: Introduction to GUI Programming with JavaFX
+
+### Learning Objectives
+- Understand JavaFX architecture
+- Create graphical user interfaces
+- Handle events
+- Build interactive applications
+
+### Topics Covered
+
+#### 7.1 JavaFX Overview
+- Scene Graph concept
+- Stage and Scene
+- Nodes (UI elements)
+- Application lifecycle
+
+**Real-World Example:** JavaFX is like a stage in a theater. The Stage is the window, the Scene is what's displayed, and Nodes are the actors (buttons, labels, images).
+
+**Practice:** Create a basic JavaFX application that displays a window with a label and a button.
+
+#### 7.2 JavaFX Scene Graph
+- Parent nodes and child nodes
+- Layout containers (VBox, HBox, StackPane)
+- Adding nodes to the scene graph
+
+**Practice:** Create a simple UI with:
+- A VBox layout
+- A label (title)
+- A button
+- A text field
+- Another label (for output)
+
+#### 7.3 Event Handling in JavaFX
+- Event types (ActionEvent, MouseEvent, KeyEvent)
+- Event handlers
+- Lambda expressions for events
+- Handling button clicks
+
+**Practice:** Make the button from your previous lab display the text from the text field in the output label.
+
+#### 7.4 Basic JavaFX Controls
+- Button, Label, TextField, TextArea
+- ComboBox, ListView
+- CheckBox, RadioButton
+- Slider, ProgressBar
+
+**Practice:** Create a "Player Information" form with:
+- Text fields for name and level
+- A slider for health (0-100)
+- A ComboBox for class selection
+- Display all info when "Submit" is clicked
+
+#### 7.5 JavaFX Layouts
+- VBox and HBox
+- GridPane
+- BorderPane
+- StackPane
+
+**Lab Activity:** Create the splash screen UI for your board game:
+1. A background image
+2. A title label
+3. Buttons: "New Game", "Load Game", "High Scores", "Quit"
+4. Use a combination of layouts (StackPane for layering, VBox for buttons)
+
+---
+
+## MODULE 8: JavaFX Graphics and Image Handling
+
+### Learning Objectives
+- Display images in JavaFX
+- Work with digital images
+- Create custom graphics
+- Add visual polish to your game
+
+### Topics Covered
+
+#### 8.1 Working with Images
+- Image class
+- ImageView class
+- Loading images from files
+- Scaling and rotating images
+
+**Real-World Example:** Every game sprite, background, and icon is an image. Images make games visually appealing.
+
+**Practice:** Load an image and display it in your application. Try scaling it and rotating it.
+
+#### 8.2 Digital Image Concepts
+- Resolution and aspect ratio
+- Color depth
+- Transparency and alpha channels
+- PNG vs. JPEG vs. GIF
+
+**Practice:** Create a simple asset pipeline:
+1. Use GIMP to create a logo image with transparency
+2. Save it as PNG24/32
+3. Load and display it in JavaFX
+
+#### 8.3 Creating Custom Graphics
+- Canvas class
+- GraphicsContext
+- Drawing shapes
+- Drawing text
+
+**Practice:** Use Canvas to draw:
+1. A colorful rectangle
+2. A circle with a gradient fill
+3. Text with a shadow
+
+#### 8.4 JavaFX Effects
+- DropShadow
+- ColorAdjust
+- Bloom
+- Using effects in your UI
+
+**Practice:** Apply a DropShadow to your game's title label. Apply ColorAdjust to your logo to change its color.
+
+#### 8.5 2D Animation Basics
+- AnimationTimer class
+- Frame-based animation
+- Simple sprite animation
+
+**Lab Activity:** Enhance your game's splash screen:
+1. Add a logo image with transparency
+2. Apply special effects (drop shadow, color adjustment)
+3. Create an animated background (moving stars or particles)
+4. Make the title pulse or glow
+
+---
+
+## MODULE 9: 3D Game Development with JavaFX
+
+### Learning Objectives
+- Understand 3D rendering concepts
+- Create 3D objects in JavaFX
+- Apply textures and materials
+- Set up 3D scenes
+
+### Topics Covered
+
+#### 9.1 Introduction to 3D in JavaFX
+- 3D coordinate system (X, Y, Z)
+- 3D scene setup
+- Camera (PerspectiveCamera, ParallelCamera)
+- Lighting (AmbientLight, PointLight)
+
+**Real-World Example:** A 3D game board is like a virtual table. You place 3D objects on it, light it, and view it from different angles.
+
+**Practice:** Set up a basic 3D scene with:
+- A PerspectiveCamera
+- A PointLight
+- A Sphere primitive (with a material)
+- Rotate the view
+
+#### 9.2 3D Primitives
+- Box (cubes, rectangles)
+- Sphere (balls)
+- Cylinder (poles, wheels)
+- Shape3D properties
+
+**Practice:** Create a simple 3D scene with:
+- A box as a "table"
+- A sphere as a "ball" on the table
+- A cylinder as a "column"
+
+#### 9.3 Materials and Textures
+- PhongMaterial
+- Diffuse color and maps
+- Specular color and maps
+- Applying images as textures
+
+**Practice:** 
+1. Create a simple texture in GIMP
+2. Apply it as a diffuse map to a sphere
+3. Add specular highlights
+
+#### 9.4 Building the Game Board
+- Creating board squares (Box primitives)
+- Positioning them in 3D space
+- Applying textures
+- Grouping board components
+
+**Practice:** Create a 3x3 game board with:
+- A grid of Box primitives
+- Each square with a different color
+- A border around the board
+
+#### 9.5 3D Interaction
+- Picking (selecting 3D objects)
+- Mouse events on 3D objects
+- Changing object properties on click
+
+**Lab Activity:** Build your game board in 3D:
+1. Create 4 quadrants with 5 squares each (20 total squares)
+2. Each square is a Box primitive
+3. Apply different textures to each square
+4. Add a "spinner" (Sphere with SPIN text)
+5. Make squares clickable (change color when clicked)
+
+---
+
+## MODULE 10: Animation and Interactivity
+
+### Learning Objectives
+- Create smooth animations
+- Implement game logic
+- Handle user input
+- Build a playable game
+
+### Topics Covered
+
+#### 10.1 JavaFX Animation
+- Transition classes
+- RotateTransition
+- TranslateTransition
+- ParallelTransition
+- Timeline and KeyFrame
+
+**Real-World Example:** Spinning the game board, moving a game piece, or zooming the camera are all animations.
+
+**Practice:** 
+1. Animate a sphere spinning
+2. Animate a box moving across the screen
+3. Create a combination animation (spinning while moving)
+
+#### 10.2 Game Loop Concepts
+- Game loop pattern
+- Update and render cycles
+- FPS (frames per second)
+- Game state management
+
+**Practice:** Implement a simple game loop using AnimationTimer that updates a counter or moves an object.
+
+#### 10.3 Implementing Game Logic
+- Game state (menu, playing, game over)
+- Score tracking
+- Turn-based mechanics
+- Win/lose conditions
+
+**Practice:** Implement basic game logic:
+1. Players take turns
+2. On each turn, roll a die (random)
+3. Move the game piece
+4. Track player position
+5. Determine winner
+
+#### 10.4 Mouse and Keyboard Input
+- Mouse events on 3D objects
+- Keyboard events
+- Handling game controls
+
+**Practice:** 
+1. Click a square to place a piece
+2. Use arrow keys to move a character
+3. Spacebar to roll dice
+
+#### 10.5 Digital Audio
+- AudioClip class
+- Sound effects
+- Background music
+- Audio formats (WAV, MP3)
+
+**Practice:** Add sound effects to your game:
+1. Dice roll sound
+2. Piece movement sound
+3. Win/lose sound
+
+**Lab Activity:** Make your board game playable:
+1. Implement full game logic
+2. Add player turns with dice rolling
+3. Animate the dice and piece movement
+4. Add sound effects
+5. Display scores
+
+---
+
+## MODULE 11: Advanced Features and Polishing
+
+### Learning Objectives
+- Add advanced game features
+- Polish the user interface
+- Implement saving and loading
+- Prepare for distribution
+
+### Topics Covered
+
+#### 11.1 Advanced 3D Features
+- Mesh and TriangleMesh
+- Custom 3D models
+- Importing 3D models (OBJ format)
+- 3D model animation
+
+**Practice:** Create a custom 3D model or import one, and animate it in your game.
+
+#### 11.2 Game Save/Load System
+- Serializing game state
+- Saving to files
+- Loading from files
+- Version compatibility
+
+**Practice:** Implement save/load:
+1. Save current game state (positions, scores, turn)
+2. Load a saved game
+3. List saved games
+
+#### 11.3 User Experience Polish
+- Smooth transitions
+- Visual feedback
+- Responsive UI
+- Accessibility
+
+**Practice:** Polish your UI:
+1. Add hover effects to buttons
+2. Smooth camera transitions
+3. Visual feedback for player actions
+
+#### 11.4 Advanced User Interface
+- Custom controls
+- FXML and Scene Builder
+- CSS styling
+- Responsive layouts
+
+**Practice:** Redesign your UI with:
+1. A consistent color scheme
+2. Custom-styled buttons
+3. Info panels for game status
+4. Scoreboard
+
+#### 11.5 Performance Optimization
+- Profiling with NetBeans
+- Memory usage optimization
+- CPU usage reduction
+- Texture optimization (8-bit color)
+
+**Practice:** 
+1. Use NetBeans Profiler to check memory usage
+2. Optimize your textures (reduce to 8-bit indexed color)
+3. Optimize your code (reduce object creation)
+
+**Lab Activity:** Complete your game:
+1. Add advanced 3D features (custom models)
+2. Implement save/load
+3. Polish UI (consistent styling, smooth transitions)
+4. Optimize for performance
+5. Add a tutorial or instructions screen
+6. Complete game loop with win/lose conditions
+
+---
+
+## MODULE 12: Software Architecture and Project Management
+
+### Learning Objectives
+- Understand software architecture principles
+- Design for scalability and maintainability
+- Manage technical debt
+- Plan and execute a software project
+
+### Topics Covered
+
+#### 12.1 Software Architecture Fundamentals
+- What is software architecture?
+- Architecture vs. design
+- Quality attributes (performance, security, maintainability, scalability)
+- Architecture patterns (Layered, Client-Server, Microservices)
+
+**Real-World Example:** The architecture of a building includes the foundation, frame, and overall structure. The software architecture is the high-level structure of your code.
+
+#### 12.2 Design Principles
+- SOLID principles
+- DRY (Don't Repeat Yourself)
+- KISS (Keep It Simple, Stupid)
+- YAGNI (You Aren't Gonna Need It)
+- Separation of concerns
+
+**Practice:** Review your game code and refactor it to follow SOLID principles.
+
+#### 12.3 Managing Technical Debt
+- What is technical debt?
+- Types of technical debt
+- Managing and paying down debt
+- When to accept technical debt
+
+**Practice:** Identify technical debt in your project. Create a plan to address it.
+
+#### 12.4 Project Planning and Management
+- Requirements gathering
+- Task breakdown
+- Estimation techniques
+- Risk management
+- Agile development
+
+**Practice:** Create a project plan for your next feature. Include:
+1. Requirements
+2. Task breakdown
+3. Time estimates
+4. Risks
+
+#### 12.5 Design Patterns
+- Common design patterns
+- Singleton, Factory, Observer
+- Strategy, Command, State
+- When to use patterns
+
+**Practice:** Identify patterns in your game. Implement the Observer pattern for game events.
+
+#### 12.6 Testing and Quality Assurance
+- Unit testing
+- Integration testing
+- Test-driven development (TDD)
+- Automated testing
+
+**Practice:** Write unit tests for critical game functions:
+1. Dice roll
+2. Player movement
+3. Score calculation
+4. Win detection
+
+#### 12.7 Deployment and Distribution
+- Building executable JARs
+- Creating installers
+- Version numbering
+- Release notes
+- Distribution channels
+
+**Capstone Project:** Complete and package your game:
+1. Final polish and bug fixes
+2. Write user documentation
+3. Create release notes
+4. Build executable JAR
+5. Create installer (optional)
+6. Prepare distribution materials
+7. Write a business plan
+
+---
+
+## Course Project: 3D Board Game
+
+### Project Overview
+Throughout this course, you will build a complete 3D board game using Java and JavaFX. The game should be:
+
+- **Playable:** Users can play the complete game
+- **Polished:** Professional-looking UI and UX
+- **Stable:** No crashes, handles errors gracefully
+- **Sellable:** Ready for distribution
+
+### Project Phases by Module
+
+**Module 1-2:** Console-based prototype  
+**Module 3-4:** Game logic and data structures  
+**Module 5:** Object-oriented design  
+**Module 6:** Data persistence  
+**Module 7:** Basic GUI  
+**Module 8:** Graphics and images  
+**Module 9:** 3D game board  
+**Module 10:** Animation and full gameplay  
+**Module 11:** Polish and advanced features  
+**Module 12:** Architecture and packaging
+
+### Recommended Game: "4-Quadrant Knowledge Board Game"
+
+**Concept:** A 3D board game where players:
+1. Spin a 3D "spinner" to select a topic quadrant
+2. Click a square to reveal a question
+3. Answer multiple-choice questions
+4. Score points for correct answers
+5. Compete for high scores
+
+**Technical Features:**
+- 3D game board with 20 squares (4 quadrants × 5 squares)
+- Animated spinner
+- Question and answer system
+- Score tracking
+- High score leaderboard
+- Save/Load game
+- Sound effects
+- 2D UI overlays on 3D scene
+
+---
+
+## Resources and Additional Materials
+
+### Books Referenced
+1. **Pro Java 9 Games Development** by Wallace Jackson
+2. **Design It! From Programmer to Software Architect** by Michael Keeling
+3. **Beginning Software Engineering** by Rod Stephens
+
+### Software Tools
+- **Java Development Kit (JDK)** - Core development platform
+- **NetBeans IDE** - Development environment
+- **GIMP** - Image editing and texture creation
+- **Audacity** - Audio editing
+- **Inkscape** - Vector graphics
+- **Blender** - 3D modeling (optional)
+- **DaVinci Resolve** - Video editing (optional)
+
+### Additional Reading
+- Effective Java by Joshua Bloch
+- Clean Code by Robert C. Martin
+- Head First Design Patterns by Freeman & Robson
+- Java: The Complete Reference by Herbert Schildt
+
+---
+
+## Assignment and Practice Structure
+
+Each module includes:
+
+### 1. Reading/Watching
+- Study the provided materials
+- Watch recommended tutorials
+
+### 2. Coding Practice
+- 3-5 small practice exercises
+- Focused on specific concepts
+
+### 3. Project Work
+- Add features to your game project
+- Apply concepts to real development
+
+### 4. Self-Assessment
+- Checklist of learning objectives
+- Reflection questions
+- Code review checklist
+
+### 5. Submission (Optional/For Instructor)
+- Code files
+- Screenshots of running application
+- Brief explanation of what was learned
+
+---
+
+## Completion Criteria
+
+### Foundation Level (Modules 1-4)
+- Can write basic Java programs
+- Understands variables, loops, and conditionals
+- Can create simple classes and objects
+
+### Intermediate Level (Modules 5-8)
+- Can use inheritance and interfaces
+- Can create GUI applications
+- Can work with images and graphics
+
+### Advanced Level (Modules 9-10)
+- Can create 3D applications
+- Can implement animations
+- Can build complete games
+
+### Expert Level (Modules 11-12)
+- Can design software architecture
+- Can manage technical debt
+- Can deliver production-ready software
+
+### Capstone Project
+- Complete, sellable software product
+- Clean code with documentation
+- Professional UI/UX
+- Stable and tested
+
+---
+
+## Career Path After This Course
+
+Upon completion, you will be qualified for:
+
+1. **Junior Java Developer**
+   - Build and maintain Java applications
+   - Work on existing codebases
+   - Implement features
+
+2. **Game Developer (Entry Level)**
+   - Work on game features
+   - Fix bugs in games
+   - Implement game mechanics
+
+3. **After 2-3 Years Experience**
+   - **Senior Developer**
+   - **Software Architect** (with additional experience)
+   - **Technical Lead**
+
+4. **Entrepreneur**
+   - Build and sell your own software products
+   - Freelance development
+   - Start a software company
+
+---
+
+## Next Steps
+
+1. **Set up your environment** (Module 1)
+2. **Write your first program** (Module 1)
+3. **Build your first calculator** (Module 2)
+4. **Create your first game** (Module 3)
+5. **Continue through each module**
+
+**Remember:** Programming is a skill that takes practice. Don't worry if you don't understand everything immediately. Each module builds on the previous one, and with consistent practice, you'll develop the skills you need.
+
+**Good luck on your journey from novice to software architect!**
+
+# Comprehensive Programming Course: From Absolute Beginner to Software Architect
+
+## Course Introduction
+
+Welcome! This course is designed for people with **zero programming experience**. You will learn how to build professional software from the ground up. By the end of this course, you will have built a complete, sellable 3D board game application using Java and JavaFX. You will also understand the principles of software engineering and architecture that allow you to create robust, maintainable software.
+
+### What You Will Build
+
+Throughout this course, you will build **"Knowledge Quest"** —a 3D educational board game where players spin a 3D spinner to pick a topic, answer multiple-choice questions, and compete for high scores. The game will be:
+
+- **Fully Playable**: Complete game loop with players, scoring, and win conditions
+- **Visually Polished**: 3D graphics with textures, animations, and special effects
+- **Professionally Architected**: Clean, well-organized code following industry best practices
+- **Sellable**: Packaged as an executable JAR file with documentation
+
+### How This Course Works
+
+Each module is structured as follows:
+
+1. **Learning Objectives** – What you will know and be able to do after completing the module
+2. **Core Concepts** – Detailed explanations with real-world analogies
+3. **Code Examples** – Working code snippets you can type and run
+4. **Project Step** – Add a feature to your game project
+5. **Practice Exercises** – Small tasks to reinforce learning
+6. **Self-Check Questions** – Verify your understanding
+7. **Summary** – Recap of key points
+
+### Required Software
+
+Before starting, install:
+
+- **Java Development Kit (JDK) 11 or later** (download from Oracle or AdoptOpenJDK)
+- **NetBeans IDE** (latest version, from Apache)
+- **GIMP** (for image editing)
+- **Audacity** (for audio editing)
+
+We will guide you through the installation in Module 1.
+
+---
+
+# MODULE 1: Getting Started – Your First Java Program
+
+## Learning Objectives
+
+- Understand what programming and software engineering are
+- Set up a professional development environment
+- Write, compile, and run your first Java program
+- Understand basic Java syntax and structure
+- Learn the importance of comments and documentation
+
+---
+
+## 1.1 What Is Programming? A Real-World Analogy
+
+Imagine you are giving instructions to a friend to bake a cake. You would write down a recipe:
+
+1. Preheat oven to 350°F
+2. Mix flour, sugar, eggs, and butter in a bowl
+3. Pour batter into a pan
+4. Bake for 30 minutes
+5. Cool and serve
+
+A computer program is exactly that—a set of precise, step-by-step instructions for a computer to follow. However, computers are not as smart as your friend. They do exactly what you tell them, no more, no less. If you tell the computer to "bake the cake" without specifying temperature, it will not know what to do.
+
+**Software Engineering** is the discipline of writing these instructions in a way that is correct, reliable, and maintainable. It's not just about writing code; it's about planning, designing, testing, and maintaining software over its lifetime.
+
+---
+
+## 1.2 Why Java?
+
+Java is one of the most popular programming languages in the world. It is used in:
+
+- Android mobile apps
+- Enterprise business systems (banking, insurance)
+- Web applications (backend servers)
+- Game development (with JavaFX)
+- Scientific applications
+
+**Why Java for beginners?**
+- It is **object-oriented**, which means it helps you think about problems in terms of real-world objects (players, cards, boards).
+- It is **platform-independent**—a Java program runs on Windows, Mac, Linux, and many other systems without change.
+- It has a **rich set of libraries** (like JavaFX for graphics) that let you build sophisticated applications.
+- It has **strong community support**—millions of developers use it, so you can find help easily.
+
+---
+
+## 1.3 Setting Up Your Development Environment
+
+### Step 1: Install the Java Development Kit (JDK)
+
+The JDK contains the tools you need to compile and run Java programs.
+
+1. Go to https://adoptium.net/ (or Oracle's website)
+2. Download the JDK for your operating system (Windows, Mac, or Linux)
+3. Run the installer and follow the default settings
+
+**Verify Installation**:
+Open a terminal (Command Prompt on Windows) and type:
+```bash
+java -version
+```
+You should see output like:
+```
+openjdk version "11.0.12" 2021-07-20
+```
+
+### Step 2: Install NetBeans IDE
+
+NetBeans is an Integrated Development Environment (IDE) that makes writing code easier. It highlights errors, suggests completions, and runs your program with a click.
+
+1. Go to https://netbeans.apache.org/
+2. Download the latest version for your OS
+3. Run the installer and choose the "Java SE" version
+
+### Step 3: Install GIMP (for graphics later)
+
+1. Go to https://www.gimp.org/
+2. Download and install GIMP
+
+### Step 4: Install Audacity (for sound later)
+
+1. Go to https://www.audacityteam.org/
+2. Download and install Audacity
+
+---
+
+## 1.4 Your First Java Program: "Hello, World!"
+
+Let's write the classic first program. We'll do this in NetBeans.
+
+### Create a New Project
+
+1. Open NetBeans
+2. Click **File → New Project**
+3. Choose **Java with Ant → Java Application**
+4. Click **Next**
+5. Set **Project Name** to `HelloWorld`
+6. Set **Create Main Class** to `helloworld.HelloWorld`
+7. Click **Finish**
+
+NetBeans will create a file called `HelloWorld.java` with some pre-written code. We will replace it with the following:
+
+```java
+package helloworld;
+
+/**
+ * This is my first Java program.
+ * It prints a greeting to the console.
+ */
+public class HelloWorld {
+
+    /**
+     * The main method is where the program starts.
+     */
+    public static void main(String[] args) {
+        // Print a message
+        System.out.println("Hello, World!");
+    }
+}
+```
+
+### Explanation Line by Line
+
+- **`package helloworld;`** – Every Java file belongs to a package (like a folder). This organizes your code.
+- **`public class HelloWorld`** – Defines a class named `HelloWorld`. A class is a blueprint for objects. For now, think of it as a container for your program.
+- **`public static void main(String[] args)`** – This is the **main method**. When you run the program, Java starts executing the code inside this method.
+- **`System.out.println("Hello, World!");`** – This line prints the text `Hello, World!` to the console (the output window).
+- **`// Print a message`** – This is a **comment**. The computer ignores it, but it helps humans understand the code.
+
+### Run the Program
+
+Click the green **Run** button (▶) in NetBeans. You should see:
+```
+Hello, World!
+```
+in the Output window.
+
+---
+
+## 1.5 Understanding Java Syntax: Comments and Code Delimiters
+
+### Comments
+
+Comments are for people, not the computer. They help you and others understand what the code does.
+
+- **Single-line comment**: Starts with `//` and continues to the end of the line.
+- **Multi-line comment**: Starts with `/*` and ends with `*/`.
+- **Javadoc comment**: Starts with `/**` and ends with `*/`. Used to generate documentation.
+
+**Example**:
+```java
+// This is a single-line comment
+
+/* This is a
+   multi-line comment */
+
+/**
+ * This is a Javadoc comment.
+ * It describes what the class or method does.
+ */
+```
+
+### Code Delimiters
+
+- **Semicolon `;`** – Ends a statement (instruction).
+- **Curly braces `{ }`** – Group blocks of code (like the body of a class or method).
+- **Parentheses `( )`** – Used in method calls and control structures.
+- **Square brackets `[ ]`** – Used for arrays (we'll learn later).
+
+**Important**: Java is **case-sensitive**. `System.out.println` is not the same as `system.out.println`.
+
+---
+
+## 1.6 Variables and Data Types – Storing Information
+
+A **variable** is like a labeled box where you can store a piece of information. In Java, you must declare what type of data the variable will hold.
+
+### Primitive Data Types
+
+| Type | Description | Example |
+|------|-------------|---------|
+| `int` | Whole numbers (integer) | `int score = 100;` |
+| `double` | Decimal numbers | `double price = 19.99;` |
+| `boolean` | True or false | `boolean isGameOver = false;` |
+| `char` | Single character | `char grade = 'A';` |
+
+### Reference Types
+
+| Type | Description | Example |
+|------|-------------|---------|
+| `String` | Text (sequence of characters) | `String name = "Alice";` |
+
+### Declaring and Initializing Variables
+
+```java
+int playerHealth;        // declaration only
+playerHealth = 100;      // initialization (assignment)
+
+int playerScore = 0;     // declaration + initialization
+
+String playerName = "Bob";
+boolean isAlive = true;
+double gold = 45.50;
+```
+
+### Naming Conventions
+
+- Use **camelCase** for variable and method names: `playerHealth`, `calculateScore`
+- Use **PascalCase** for class names: `HelloWorld`, `GameBoard`
+- Use **UPPER_SNAKE_CASE** for constants: `MAX_PLAYERS`, `DEFAULT_SCORE`
+
+---
+
+## 1.7 Printing and Reading Input
+
+### Printing to Console
+
+```java
+System.out.println("Hello");  // prints and moves to next line
+System.out.print("Hello");    // prints without newline
+```
+
+### Reading User Input
+
+To read input from the user, we use a `Scanner` object.
+
+```java
+import java.util.Scanner;  // Must be at the top of the file
+
+public class InputExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();  // read a line of text
+
+        System.out.print("Enter your age: ");
+        int age = scanner.nextInt();       // read an integer
+
+        System.out.println("Hello " + name + ", you are " + age + " years old.");
+    }
+}
+```
+
+---
+
+## 1.8 Your First Project Step: The Game Menu
+
+Now we will start building our game. In this first step, we'll create a simple text-based menu that the user can interact with.
+
+### Project: Knowledge Quest – Stage 1 (Console Menu)
+
+Create a new Java project called `KnowledgeQuest`. Create a class called `Game` with a `main` method.
+
+**Your Task**: Write a program that displays a menu and asks the user to choose an option.
+
+```java
+package knowledgequest;
+
+import java.util.Scanner;
+
+public class Game {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int choice = 0;
+
+        System.out.println("======================================");
+        System.out.println("      WELCOME TO KNOWLEDGE QUEST      ");
+        System.out.println("======================================");
+        System.out.println("1. Start Game");
+        System.out.println("2. View High Scores");
+        System.out.println("3. Instructions");
+        System.out.println("4. Exit");
+        System.out.print("Enter your choice: ");
+
+        choice = scanner.nextInt();
+
+        if (choice == 1) {
+            System.out.println("Starting game...");
+        } else if (choice == 2) {
+            System.out.println("Displaying high scores...");
+        } else if (choice == 3) {
+            System.out.println("Instructions: Roll the dice, move your piece, answer questions to score points!");
+        } else if (choice == 4) {
+            System.out.println("Goodbye!");
+        } else {
+            System.out.println("Invalid choice. Please try again.");
+        }
+        
+        scanner.close();
+    }
+}
+```
+
+**Run it** and test each option.
+
+### Explanation
+
+- We import `java.util.Scanner` to read input.
+- We create a `Scanner` object and store user's choice in `choice`.
+- We use `if-else if-else` to handle each option.
+- This is a very basic menu; we will improve it later.
+
+---
+
+## 1.9 Practice Exercises
+
+1. **Modify the program** to ask for the user's name and greet them after the menu.
+2. **Add a new menu option** – "About" that prints the game version.
+3. **Write a program** that converts temperatures: ask for Fahrenheit and print Celsius.
+4. **Write a program** that calculates the area of a rectangle (ask for length and width).
+
+---
+
+## 1.10 Self-Check Questions
+
+1. What is the difference between `System.out.print` and `System.out.println`?
+2. What is a variable? Give an example of declaring and initializing one.
+3. What are the two main types of comments in Java?
+4. Why do we need a `Scanner` object?
+5. What does the `main` method do?
+
+---
+
+## 1.11 Summary
+
+- Programming is giving precise instructions to a computer.
+- Java is a popular, versatile language.
+- We set up our development environment (JDK, NetBeans).
+- We wrote our first program and learned about variables, data types, and input/output.
+- We started our game project with a console menu.
+
+---
+
+# MODULE 2: Control Flow – Making Decisions and Loops
+
+## Learning Objectives
+
+- Use `if`, `else if`, `else` for decision making
+- Use `switch` for multiple choices
+- Use `while` and `do-while` loops for repetition
+- Use `for` loops for counting
+- Understand and avoid infinite loops
+- Implement a simple game loop
+
+---
+
+## 2.1 Making Decisions: The `if` Statement
+
+In programming, we often need to make decisions based on conditions. The `if` statement allows us to execute code only when a condition is true.
+
+### Syntax
+
+```java
+if (condition) {
+    // code to run if condition is true
+}
+```
+
+### Example
+
+```java
+int score = 85;
+
+if (score >= 70) {
+    System.out.println("You passed!");
+}
+```
+
+### `if-else`
+
+```java
+if (score >= 70) {
+    System.out.println("You passed!");
+} else {
+    System.out.println("You failed.");
+}
+```
+
+### `else if` (multiple conditions)
+
+```java
+if (score >= 90) {
+    System.out.println("Grade: A");
+} else if (score >= 80) {
+    System.out.println("Grade: B");
+} else if (score >= 70) {
+    System.out.println("Grade: C");
+} else {
+    System.out.println("Grade: F");
+}
+```
+
+### Logical Operators
+
+- `&&` – AND (both must be true)
+- `||` – OR (at least one must be true)
+- `!` – NOT (reverses boolean)
+
+**Example**:
+```java
+int age = 25;
+boolean hasLicense = true;
+
+if (age >= 18 && hasLicense) {
+    System.out.println("You can drive.");
+}
+```
+
+---
+
+## 2.2 The `switch` Statement
+
+When you have many discrete values to check, `switch` can be cleaner than multiple `if-else`.
+
+### Syntax
+
+```java
+switch (variable) {
+    case value1:
+        // code
+        break;
+    case value2:
+        // code
+        break;
+    default:
+        // code if no case matches
+}
+```
+
+### Example
+
+```java
+int day = 3;
+String dayName;
+
+switch (day) {
+    case 1:
+        dayName = "Monday";
+        break;
+    case 2:
+        dayName = "Tuesday";
+        break;
+    case 3:
+        dayName = "Wednesday";
+        break;
+    default:
+        dayName = "Invalid day";
+}
+
+System.out.println(dayName);
+```
+
+---
+
+## 2.3 Loops: Repeating Code
+
+Loops allow us to run a block of code multiple times.
+
+### `while` Loop
+
+The `while` loop repeats as long as a condition is true.
+
+```java
+int i = 0;
+while (i < 5) {
+    System.out.println(i);
+    i++;   // increment i by 1
+}
+// Output: 0, 1, 2, 3, 4
+```
+
+### `do-while` Loop
+
+This is similar, but the condition is checked after the code runs, so the code runs at least once.
+
+```java
+int i = 0;
+do {
+    System.out.println(i);
+    i++;
+} while (i < 5);
+```
+
+### `for` Loop
+
+The `for` loop is used when you know how many times to repeat.
+
+```java
+for (int i = 0; i < 5; i++) {
+    System.out.println(i);
+}
+```
+
+**Parts**:
+- `int i = 0;` – initialization (runs once)
+- `i < 5;` – condition (checked before each iteration)
+- `i++` – increment (runs after each iteration)
+
+---
+
+## 2.4 Avoiding Infinite Loops
+
+An infinite loop never ends. For example:
+
+```java
+int i = 0;
+while (i < 5) {
+    System.out.println(i);
+    // forgot to increment i!
+}
+```
+
+Always ensure the loop condition will eventually become false.
+
+---
+
+## 2.5 The Random Class – Adding Chance
+
+Games need randomness. Java provides the `Random` class.
+
+```java
+import java.util.Random;
+
+Random random = new Random();
+
+// Random integer between 0 and 99 (inclusive)
+int randomNumber = random.nextInt(100);  // 0..99
+
+// Random integer between 1 and 6 (for dice)
+int dice = random.nextInt(6) + 1;
+
+// Random boolean
+boolean heads = random.nextBoolean();
+```
+
+---
+
+## 2.6 Project Step: Adding a Game Loop and Dice Roll
+
+Now we'll enhance our game menu to keep showing until the user chooses to exit. We'll also add a simple dice roll simulation.
+
+### Update `Game.java`
+
+```java
+package knowledgequest;
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class Game {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+        int choice = 0;
+
+        System.out.println("======================================");
+        System.out.println("      WELCOME TO KNOWLEDGE QUEST      ");
+        System.out.println("======================================");
+
+        // Main game loop
+        while (choice != 4) {
+            System.out.println("\n1. Start Game");
+            System.out.println("2. View High Scores");
+            System.out.println("3. Roll Dice (demo)");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            
+            choice = scanner.nextInt();
+
+            if (choice == 1) {
+                System.out.println("Starting game...");
+                // We'll implement game logic later
+            } else if (choice == 2) {
+                System.out.println("Displaying high scores...");
+            } else if (choice == 3) {
+                int roll = random.nextInt(6) + 1;
+                System.out.println("You rolled a " + roll + "!");
+            } else if (choice == 4) {
+                System.out.println("Goodbye!");
+            } else {
+                System.out.println("Invalid choice. Please try again.");
+            }
+        }
+        scanner.close();
+    }
+}
+```
+
+### Explanation
+
+- We changed the `if-else` inside a `while` loop so the menu repeats until `choice == 4`.
+- We added a **Roll Dice** option to demonstrate random numbers.
+- This is the beginning of our game loop—we will replace the placeholder with real game logic later.
+
+---
+
+## 2.7 Practice Exercises
+
+1. Write a program that sums all numbers from 1 to 100 using a `for` loop.
+2. Write a program that prints a multiplication table (1 to 10).
+3. Write a program that asks the user for a number and prints all even numbers from 1 to that number.
+4. Modify the dice roll to roll two dice and print the sum.
+5. Write a program that guesses a number between 1-100, and the user gives hints (higher/lower). Use a loop until the user guesses correctly.
+
+---
+
+## 2.8 Self-Check Questions
+
+1. What is the difference between `while` and `do-while`?
+2. When would you use a `for` loop instead of a `while` loop?
+3. What does `break` do in a `switch`?
+4. How do you generate a random number between 1 and 10?
+5. How can you prevent an infinite loop?
+
+---
+
+## 2.9 Summary
+
+- `if-else` and `switch` allow decision making.
+- Loops (`while`, `do-while`, `for`) repeat code.
+- The `Random` class introduces unpredictability.
+- We implemented a menu loop and a dice roll in our game.
+
+---
+
+# MODULE 3: Object-Oriented Programming – Classes and Objects
+
+## Learning Objectives
+
+- Understand the concepts of classes and objects
+- Create your own classes with fields and methods
+- Use constructors to initialize objects
+- Encapsulate data with getters and setters
+- Understand the difference between instance and static members
+- Build the core classes for your game
+
+---
+
+## 3.1 What is Object-Oriented Programming?
+
+Object-Oriented Programming (OOP) is a programming paradigm that organizes code around "objects" rather than functions and logic. An object is a self-contained entity that contains data (attributes) and behavior (methods).
+
+**Real-World Analogy**: Think of a car. A car has attributes (color, model, speed) and behaviors (accelerate, brake, turn). In OOP, we would model a `Car` class with those attributes and methods, and then create individual `Car` objects (e.g., myRedToyota, yourBlueHonda).
+
+**Four Pillars of OOP**:
+1. **Encapsulation** – Hiding internal details and exposing only what is necessary.
+2. **Inheritance** – Creating new classes based on existing ones.
+3. **Polymorphism** – Using objects of different types through a common interface.
+4. **Abstraction** – Simplifying complex reality by modeling classes appropriate to the problem.
+
+---
+
+## 3.2 Creating a Class
+
+A class is a blueprint. Let's create a `Player` class for our game.
+
+### Defining the Class
+
+```java
+package knowledgequest;
+
+public class Player {
+    // Fields (attributes)
+    private String name;
+    private int health;
+    private int score;
+    private int position;  // board position
+
+    // Constructor
+    public Player(String name) {
+        this.name = name;
+        this.health = 100;
+        this.score = 0;
+        this.position = 0;
+    }
+
+    // Methods (behaviors)
+    public void moveForward(int steps) {
+        position += steps;
+        System.out.println(name + " moved to position " + position);
+    }
+
+    public void takeDamage(int damage) {
+        health -= damage;
+        if (health < 0) health = 0;
+        System.out.println(name + " took " + damage + " damage. Health: " + health);
+    }
+
+    public void addScore(int points) {
+        score += points;
+    }
+
+    // Getters (accessors)
+    public String getName() {
+        return name;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    // Setters (mutators) – not needed for all fields if they shouldn't change
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // Override toString() to display player info
+    @Override
+    public String toString() {
+        return "Player: " + name + " | Health: " + health + " | Score: " + score + " | Position: " + position;
+    }
+}
+```
+
+### Explanation
+
+- **Fields** (`private`) – Data that belongs to each object. Private means only code inside this class can access them directly.
+- **Constructor** – A special method that runs when you create a new object. It initializes the fields.
+- **`this`** – Refers to the current object.
+- **Methods** – Define behavior. We have `moveForward`, `takeDamage`, `addScore`.
+- **Getters/Setters** – Allow controlled access to private fields.
+
+---
+
+## 3.3 Using the Player Class
+
+Now we can create `Player` objects in our main program.
+
+```java
+public class Game {
+    public static void main(String[] args) {
+        Player player1 = new Player("Alice");
+        Player player2 = new Player("Bob");
+
+        player1.moveForward(3);
+        player2.moveForward(2);
+
+        player1.takeDamage(15);
+        player1.addScore(10);
+
+        System.out.println(player1);
+        System.out.println(player2);
+    }
+}
+```
+
+**Output**:
+```
+Alice moved to position 3
+Bob moved to position 2
+Alice took 15 damage. Health: 85
+Player: Alice | Health: 85 | Score: 10 | Position: 3
+Player: Bob | Health: 100 | Score: 0 | Position: 2
+```
+
+---
+
+## 3.4 Encapsulation and Why It Matters
+
+Encapsulation hides the internal state of an object and requires all interaction to happen through methods. This protects the object from being changed in ways that could break its integrity.
+
+For example, if health was public, someone could set it to -100 or 9999, which would break game rules. By making it private and providing a `takeDamage` method, we can enforce rules (like health cannot go below 0).
+
+---
+
+## 3.5 Static vs. Instance Members
+
+- **Instance members** belong to a specific object (each object has its own copy).
+- **Static members** belong to the class itself (shared by all objects).
+
+### Example
+
+```java
+public class GameSettings {
+    public static final int MAX_PLAYERS = 4;  // constant, shared
+    private static int totalGamesPlayed = 0;  // shared counter
+
+    public static void incrementGamesPlayed() {
+        totalGamesPlayed++;
+    }
+
+    public static int getTotalGamesPlayed() {
+        return totalGamesPlayed;
+    }
+}
+```
+
+Access: `GameSettings.MAX_PLAYERS` (no object needed).
+
+---
+
+## 3.6 Project Step: Add Player and Board Classes
+
+We will now add core classes for our game.
+
+### 3.6.1 Create `BoardSquare` Class
+
+A square on the board has a position, a type (e.g., "question", "bonus", "penalty"), and a description.
+
+```java
+package knowledgequest;
+
+public class BoardSquare {
+    private int position;
+    private String type;
+    private String description;
+
+    public BoardSquare(int position, String type, String description) {
+        this.position = position;
+        this.type = type;
+        this.description = description;
+    }
+
+    public int getPosition() { return position; }
+    public String getType() { return type; }
+    public String getDescription() { return description; }
+
+    @Override
+    public String toString() {
+        return "Square " + position + ": " + type + " - " + description;
+    }
+}
+```
+
+### 3.6.2 Create `Board` Class
+
+The board holds an array of squares and can return a square by position.
+
+```java
+package knowledgequest;
+
+public class Board {
+    private BoardSquare[] squares;
+
+    public Board(int size) {
+        squares = new BoardSquare[size];
+        // Initialize squares
+        for (int i = 0; i < size; i++) {
+            String type = "normal";
+            String desc = "Just a square";
+            if (i % 5 == 0) {
+                type = "question";
+                desc = "Answer a question!";
+            } else if (i % 7 == 0) {
+                type = "bonus";
+                desc = "Bonus points!";
+            } else if (i % 11 == 0) {
+                type = "penalty";
+                desc = "Oops! Lose points!";
+            }
+            squares[i] = new BoardSquare(i, type, desc);
+        }
+    }
+
+    public BoardSquare getSquare(int position) {
+        if (position >= 0 && position < squares.length) {
+            return squares[position];
+        }
+        return null;
+    }
+
+    public int getSize() {
+        return squares.length;
+    }
+}
+```
+
+### 3.6.3 Integrate into Game
+
+Update `Game.java` to create a player and a board, and allow the player to roll dice and move.
+
+```java
+// In main method:
+Player player = new Player("You");
+Board board = new Board(30);
+
+// Inside the game loop, when "Start Game" is chosen:
+if (choice == 1) {
+    int roll = random.nextInt(6) + 1;
+    System.out.println("You rolled a " + roll);
+    player.moveForward(roll);
+    BoardSquare square = board.getSquare(player.getPosition());
+    if (square != null) {
+        System.out.println("You landed on: " + square);
+        // We'll add interaction later
+    }
+}
+```
+
+---
+
+## 3.7 Practice Exercises
+
+1. Add a `heal(int amount)` method to `Player`.
+2. Add a `reset()` method that restores health and score to starting values.
+3. Create a `GamePiece` class that represents a token on the board, with a color and a reference to a player.
+4. Modify `Board` to generate 20 squares with more interesting events.
+5. Write a program that creates three players and simulates a few turns, printing their stats.
+
+---
+
+## 3.8 Self-Check Questions
+
+1. What is the difference between a class and an object?
+2. Why do we make fields `private`?
+3. What is a constructor?
+4. What is the difference between instance and static methods?
+5. How do you create a new object?
+
+---
+
+## 3.9 Summary
+
+- Classes are blueprints; objects are instances.
+- Encapsulation protects data.
+- We built `Player`, `BoardSquare`, and `Board` classes.
+- We integrated them into our game loop.
+
+---
+
+# MODULE 4: Inheritance, Interfaces, and Polymorphism
+
+## Learning Objectives
+
+- Use inheritance to create class hierarchies
+- Override methods
+- Use abstract classes and interfaces
+- Understand polymorphism
+- Apply these concepts to game entities
+
+---
+
+## 4.1 Inheritance Basics
+
+Inheritance allows a class to inherit fields and methods from another class. This promotes code reuse and establishes a hierarchy.
+
+**Terminology**:
+- **Superclass (parent)** – The class being inherited from.
+- **Subclass (child)** – The class that inherits.
+
+### Example
+
+```java
+// Superclass
+public class GameObject {
+    protected int x, y;   // position on board
+    protected String name;
+
+    public GameObject(String name, int x, int y) {
+        this.name = name;
+        this.x = x;
+        this.y = y;
+    }
+
+    public void move(int dx, int dy) {
+        x += dx;
+        y += dy;
+    }
+
+    public void display() {
+        System.out.println(name + " at (" + x + "," + y + ")");
+    }
+}
+
+// Subclass
+public class Player extends GameObject {
+    private int health;
+    private int score;
+
+    public Player(String name, int x, int y) {
+        super(name, x, y);   // call superclass constructor
+        health = 100;
+        score = 0;
+    }
+
+    // Additional methods
+    public void takeDamage(int damage) {
+        health -= damage;
+    }
+
+    // Override display
+    @Override
+    public void display() {
+        super.display();  // call parent's display
+        System.out.println("Health: " + health + " Score: " + score);
+    }
+}
+```
+
+### Using Inheritance
+
+```java
+Player p = new Player("Alice", 0, 0);
+p.move(2, 3);   // inherited from GameObject
+p.takeDamage(10);
+p.display();
+```
+
+---
+
+## 4.2 Overriding Methods
+
+When a subclass provides its own implementation of a method from the superclass, it's called **overriding**. Use `@Override` annotation to indicate it (optional but good practice).
+
+**Rules**:
+- Method name, parameters, and return type must match.
+- Access level cannot be more restrictive (e.g., public overridden method cannot become private).
+
+---
+
+## 4.3 Abstract Classes
+
+An abstract class cannot be instantiated; it is meant to be subclassed. It can have abstract methods (no body) that subclasses must implement.
+
+```java
+public abstract class GameObject {
+    protected int x, y;
+    public abstract void update();  // must be implemented by subclasses
+}
+
+public class Player extends GameObject {
+    @Override
+    public void update() {
+        // logic for player update
+    }
+}
+```
+
+---
+
+## 4.4 Interfaces
+
+An interface is a contract that specifies what methods a class must implement. It contains only method signatures (and constants). Classes can implement multiple interfaces.
+
+```java
+public interface Drawable {
+    void draw();
+}
+
+public interface Movable {
+    void move(int dx, int dy);
+}
+
+public class Player extends GameObject implements Drawable, Movable {
+    @Override
+    public void draw() {
+        // draw player on screen
+    }
+
+    @Override
+    public void move(int dx, int dy) {
+        // move logic
+    }
+}
+```
+
+---
+
+## 4.5 Polymorphism
+
+Polymorphism means "many forms". It allows you to treat objects of different classes through a common superclass or interface.
+
+```java
+List<GameObject> objects = new ArrayList<>();
+objects.add(new Player("Alice", 0, 0));
+objects.add(new Enemy("Goblin", 5, 5));
+
+for (GameObject obj : objects) {
+    obj.update();  // works for any subclass
+}
+```
+
+---
+
+## 4.6 Project Step: Using Inheritance for Game Entities
+
+We'll refactor our game to use inheritance.
+
+### Create `GameEntity` (abstract)
+
+```java
+package knowledgequest;
+
+public abstract class GameEntity {
+    protected String name;
+    protected int position;  // simplified to 1D board position
+
+    public GameEntity(String name, int position) {
+        this.name = name;
+        this.position = position;
+    }
+
+    public void move(int steps) {
+        position += steps;
+        System.out.println(name + " moved to position " + position);
+    }
+
+    public abstract void interact(BoardSquare square);
+
+    public String getName() { return name; }
+    public int getPosition() { return position; }
+    public void setPosition(int pos) { position = pos; }
+}
+```
+
+### Refactor `Player` to extend `GameEntity`
+
+```java
+public class Player extends GameEntity {
+    private int health;
+    private int score;
+
+    public Player(String name, int position) {
+        super(name, position);
+        health = 100;
+        score = 0;
+    }
+
+    @Override
+    public void interact(BoardSquare square) {
+        if (square.getType().equals("question")) {
+            // we'll implement question answering later
+            System.out.println(name + " lands on a question square!");
+        } else if (square.getType().equals("bonus")) {
+            score += 10;
+            System.out.println(name + " gets bonus +10 points! Score: " + score);
+        } else if (square.getType().equals("penalty")) {
+            health -= 10;
+            System.out.println(name + " loses 10 health! Health: " + health);
+        } else {
+            System.out.println(name + " lands on a normal square.");
+        }
+    }
+
+    // Getters, setters as before
+}
+```
+
+### Create `ComputerPlayer` class (extends `GameEntity`)
+
+```java
+public class ComputerPlayer extends GameEntity {
+    private int difficulty;
+
+    public ComputerPlayer(String name, int position, int difficulty) {
+        super(name, position);
+        this.difficulty = difficulty;
+    }
+
+    @Override
+    public void interact(BoardSquare square) {
+        // AI logic can be different
+        System.out.println(name + " (AI) interacts with " + square.getType());
+    }
+}
+```
+
+### Use Polymorphism in Game
+
+```java
+List<GameEntity> entities = new ArrayList<>();
+entities.add(new Player("You", 0));
+entities.add(new ComputerPlayer("Bot", 0, 1));
+
+for (GameEntity entity : entities) {
+    entity.move(3);
+    BoardSquare sq = board.getSquare(entity.getPosition());
+    if (sq != null) {
+        entity.interact(sq);
+    }
+}
+```
+
+---
+
+## 4.7 Practice Exercises
+
+1. Create a `PowerUp` class that extends `GameEntity` and adds special abilities.
+2. Implement an `AI` interface with a `decideMove()` method, and make `ComputerPlayer` implement it.
+3. Create an `Inventory` class that stores items, and add it to `Player`.
+4. Write a program that demonstrates polymorphism: create an array of `GameEntity` and call `interact` on each.
+
+---
+
+## 4.8 Self-Check Questions
+
+1. What is inheritance and why use it?
+2. What is the difference between abstract class and interface?
+3. What is method overriding?
+4. What is polymorphism and how does it help?
+5. When would you use an interface instead of an abstract class?
+
+---
+
+## 4.9 Summary
+
+- Inheritance creates "is-a" relationships.
+- Abstract classes provide a base with some implementation.
+- Interfaces define contracts.
+- Polymorphism allows flexible code.
+- We refactored our game to use a hierarchy.
+
+---
+
+# MODULE 5: Collections and File I/O
+
+## Learning Objectives
+
+- Use `ArrayList`, `HashMap`, and other collections
+- Understand generics
+- Read and write text files
+- Serialize objects
+- Implement high score persistence
+
+---
+
+## 5.1 Introduction to Collections
+
+A collection is a data structure that holds multiple elements. Java provides the Collections Framework with various implementations.
+
+### `ArrayList`
+
+An ordered list that can grow dynamically.
+
+```java
+import java.util.ArrayList;
+
+ArrayList<String> names = new ArrayList<>();
+names.add("Alice");
+names.add("Bob");
+System.out.println(names.get(0));  // Alice
+System.out.println(names.size());  // 2
+
+for (String name : names) {
+    System.out.println(name);
+}
+```
+
+### `HashMap`
+
+A key-value map (dictionary).
+
+```java
+import java.util.HashMap;
+
+HashMap<String, Integer> scores = new HashMap<>();
+scores.put("Alice", 100);
+scores.put("Bob", 85);
+
+int aliceScore = scores.get("Alice");  // 100
+
+for (String key : scores.keySet()) {
+    System.out.println(key + " -> " + scores.get(key));
+}
+```
+
+### Generics
+
+`<String>` specifies the type of elements. This provides type safety.
+
+---
+
+## 5.2 File I/O – Reading and Writing Text Files
+
+### Writing to a File
+
+```java
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.IOException;
+
+try (PrintWriter writer = new PrintWriter(new FileWriter("scores.txt"))) {
+    writer.println("Alice,100");
+    writer.println("Bob,85");
+} catch (IOException e) {
+    System.out.println("Error writing to file.");
+}
+```
+
+### Reading from a File
+
+```java
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+try (BufferedReader reader = new BufferedReader(new FileReader("scores.txt"))) {
+    String line;
+    while ((line = reader.readLine()) != null) {
+        System.out.println(line);
+    }
+} catch (IOException e) {
+    System.out.println("Error reading file.");
+}
+```
+
+---
+
+## 5.3 Exception Handling
+
+Exceptions are errors that occur during runtime. Handling them prevents crashes.
+
+### Try-Catch
+
+```java
+try {
+    int result = 10 / 0;  // ArithmeticException
+} catch (ArithmeticException e) {
+    System.out.println("Cannot divide by zero.");
+} catch (Exception e) {
+    System.out.println("Some other error: " + e.getMessage());
+} finally {
+    System.out.println("This always runs.");
+}
+```
+
+### Try-with-Resources (as used above)
+
+Automatically closes resources (like files) after use.
+
+---
+
+## 5.4 Project Step: High Score Manager
+
+We'll create a `HighScoreManager` class that saves and loads scores.
+
+```java
+package knowledgequest;
+
+import java.io.*;
+import java.util.*;
+
+public class HighScoreManager {
+    private Map<String, Integer> scores;
+
+    public HighScoreManager() {
+        scores = new HashMap<>();
+        loadScores();
+    }
+
+    public void addScore(String playerName, int score) {
+        if (scores.containsKey(playerName)) {
+            if (score > scores.get(playerName)) {
+                scores.put(playerName, score);
+            }
+        } else {
+            scores.put(playerName, score);
+        }
+        saveScores();
+    }
+
+    public List<Map.Entry<String, Integer>> getTopScores(int limit) {
+        List<Map.Entry<String, Integer>> list = new ArrayList<>(scores.entrySet());
+        list.sort((e1, e2) -> e2.getValue().compareTo(e1.getValue()));
+        if (list.size() > limit) {
+            return list.subList(0, limit);
+        }
+        return list;
+    }
+
+    private void saveScores() {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("highscores.txt"))) {
+            for (Map.Entry<String, Integer> entry : scores.entrySet()) {
+                writer.println(entry.getKey() + "," + entry.getValue());
+            }
+        } catch (IOException e) {
+            System.out.println("Could not save high scores.");
+        }
+    }
+
+    private void loadScores() {
+        File file = new File("highscores.txt");
+        if (!file.exists()) return;
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 2) {
+                    scores.put(parts[0], Integer.parseInt(parts[1]));
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Could not load high scores.");
+        }
+    }
+}
+```
+
+### Integrate into Game
+
+Add a `HighScoreManager` field in `Game`. When the player's game ends, add their score. Display high scores in menu option 2.
+
+---
+
+## 5.5 Practice Exercises
+
+1. Write a program that reads a list of numbers from a file, sums them, and writes the result.
+2. Create a `ShoppingCart` using `ArrayList` and save it to a file.
+3. Implement a `QuestionBank` class that loads questions from a CSV file.
+4. Modify `HighScoreManager` to store multiple scores per player (use `ArrayList<Integer>` in map).
+
+---
+
+## 5.6 Self-Check Questions
+
+1. What is the difference between `ArrayList` and `HashMap`?
+2. What is a generic?
+3. Why do we use `try-catch`?
+4. What is try-with-resources?
+5. How do you read a text file line by line?
+
+---
+
+## 5.7 Summary
+
+- Collections store groups of objects.
+- `ArrayList` and `HashMap` are commonly used.
+- File I/O allows persistence.
+- Exception handling prevents crashes.
+- We implemented a high score manager.
+
+---
+
+# MODULE 6: Introduction to JavaFX – GUI and Event Handling
+
+## Learning Objectives
+
+- Understand JavaFX architecture
+- Create windows, scenes, and UI controls
+- Handle events (button clicks)
+- Build a graphical menu
+- Start converting our game to GUI
+
+---
+
+## 6.1 What is JavaFX?
+
+JavaFX is a framework for building rich client applications with graphics, media, and controls. It replaces the older Swing/AWT libraries.
+
+**Key Concepts**:
+- **Stage** – The window (like a theater stage).
+- **Scene** – The content displayed on the stage.
+- **Node** – Any visual element (button, label, image).
+- **Scene Graph** – A tree of nodes that defines the UI structure.
+
+---
+
+## 6.2 Your First JavaFX Application
+
+Create a new JavaFX project in NetBeans: File → New Project → JavaFX → JavaFX Application. Let's call it `KnowledgeQuestFX`.
+
+The generated code looks like this:
+
+```java
+package knowledgequestfx;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+    @Override
+    public void start(Stage primaryStage) {
+        Button btn = new Button();
+        btn.setText("Say 'Hello World'");
+        btn.setOnAction(event -> System.out.println("Hello World!"));
+
+        StackPane root = new StackPane();
+        root.getChildren().add(btn);
+
+        Scene scene = new Scene(root, 300, 250);
+
+        primaryStage.setTitle("Hello World!");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+```
+
+### Explanation
+
+- `Application` – main class for JavaFX.
+- `start(Stage primaryStage)` – called when the application starts. The `Stage` is the window.
+- `Button` – a clickable control.
+- `setOnAction` – event handler for button click (lambda expression).
+- `StackPane` – layout that stacks children.
+- `Scene` – container for the root node.
+- `primaryStage.show()` – displays the window.
+
+---
+
+## 6.3 Layouts and Controls
+
+### Common Layouts
+
+- `VBox` – vertical arrangement.
+- `HBox` – horizontal arrangement.
+- `GridPane` – grid layout.
+- `BorderPane` – top, bottom, left, right, center.
+- `StackPane` – overlapping.
+
+### Common Controls
+
+- `Label` – text display.
+- `Button` – clickable.
+- `TextField` – single-line input.
+- `TextArea` – multi-line input.
+- `ComboBox` – dropdown.
+- `ListView` – list of items.
+
+### Example
+
+```java
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+
+VBox vbox = new VBox(10);  // spacing 10
+Label label = new Label("Enter your name:");
+TextField textField = new TextField();
+Button submitButton = new Button("Submit");
+submitButton.setOnAction(e -> {
+    String name = textField.getText();
+    System.out.println("Hello " + name);
+});
+vbox.getChildren().addAll(label, textField, submitButton);
+```
+
+---
+
+## 6.4 Event Handling in Detail
+
+Events are actions (like clicks, key presses) that trigger code. In JavaFX, we use `EventHandler` functional interfaces, often via lambdas.
+
+**Button click**:
+```java
+button.setOnAction(event -> {
+    // code runs when button clicked
+});
+```
+
+**Mouse click on any node**:
+```java
+node.setOnMouseClicked(event -> {
+    // code runs when node clicked
+});
+```
+
+**Key press**:
+```java
+scene.setOnKeyPressed(event -> {
+    if (event.getCode() == KeyCode.ENTER) {
+        // handle enter key
+    }
+});
+```
+
+---
+
+## 6.5 Project Step: Build the Game Menu GUI
+
+We'll create a graphical menu with buttons instead of console text.
+
+### Create `MainMenu` class
+
+```java
+package knowledgequestfx;
+
+import javafx.application.Application;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class MainMenu extends Application {
+    @Override
+    public void start(Stage primaryStage) {
+        Text title = new Text("KNOWLEDGE QUEST");
+        title.setStyle("-fx-font-size: 36; -fx-font-weight: bold;");
+
+        Button startBtn = new Button("Start Game");
+        Button scoresBtn = new Button("High Scores");
+        Button instructionsBtn = new Button("Instructions");
+        Button exitBtn = new Button("Exit");
+
+        // Set button sizes
+        startBtn.setPrefWidth(200);
+        scoresBtn.setPrefWidth(200);
+        instructionsBtn.setPrefWidth(200);
+        exitBtn.setPrefWidth(200);
+
+        // Event handlers
+        startBtn.setOnAction(e -> {
+            System.out.println("Starting game...");
+            // We will switch to game scene later
+        });
+        scoresBtn.setOnAction(e -> {
+            System.out.println("Showing high scores...");
+        });
+        instructionsBtn.setOnAction(e -> {
+            System.out.println("Showing instructions...");
+        });
+        exitBtn.setOnAction(e -> {
+            primaryStage.close();
+        });
+
+        VBox vbox = new VBox(15);
+        vbox.setAlignment(Pos.CENTER);
+        vbox.getChildren().addAll(title, startBtn, scoresBtn, instructionsBtn, exitBtn);
+
+        Scene scene = new Scene(vbox, 800, 600);
+        primaryStage.setTitle("Knowledge Quest");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+```
+
+### Explanation
+
+- We use `VBox` to stack buttons vertically.
+- `setPrefWidth` makes buttons uniform size.
+- `setAlignment(Pos.CENTER)` centers everything.
+- Each button has an event handler.
+
+---
+
+## 6.6 Switching Scenes
+
+We'll need multiple scenes (menu, game, scores). To switch, we create a new `Scene` and set it on the `Stage`.
+
+```java
+// Inside startBtn handler
+Scene gameScene = new Scene(new GameUI().getRoot(), 800, 600);
+primaryStage.setScene(gameScene);
+```
+
+We'll build `GameUI` class later.
+
+---
+
+## 6.7 Practice Exercises
+
+1. Add a text field to the menu to enter player name before starting.
+2. Create a "Settings" scene with a slider and checkbox.
+3. Implement a simple calculator GUI with buttons for digits and operators.
+4. Add a `Label` that updates when buttons are clicked.
+
+---
+
+## 6.8 Self-Check Questions
+
+1. What is the role of `Stage` and `Scene`?
+2. How do you handle a button click?
+3. What is a layout pane? Name three.
+4. How do you switch scenes?
+5. What is a lambda expression and how is it used in event handling?
+
+---
+
+## 6.9 Summary
+
+- JavaFX provides graphical UI capabilities.
+- `Stage`, `Scene`, and `Node` are core concepts.
+- Layouts arrange controls.
+- Events are handled with lambdas.
+- We built a graphical menu for our game.
+
+---
+
+# MODULE 7: JavaFX Graphics and Images
+
+## Learning Objectives
+
+- Load and display images
+- Use `ImageView` and `Image` classes
+- Understand image formats and transparency
+- Create custom graphics with `Canvas`
+- Apply visual effects
+
+---
+
+## 7.1 Loading and Displaying Images
+
+### Using `Image` and `ImageView`
+
+```java
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+// Load from file (relative to project root)
+Image image = new Image("file:logo.png");
+ImageView imageView = new ImageView(image);
+
+// Or load from resources (inside src)
+Image image2 = new Image(getClass().getResourceAsStream("/logo.png"));
+ImageView imageView2 = new ImageView(image2);
+```
+
+### Scaling and Rotating
+
+```java
+imageView.setFitWidth(200);
+imageView.setFitHeight(200);
+imageView.setPreserveRatio(true);
+imageView.setRotate(45);  // degrees
+```
+
+---
+
+## 7.2 Understanding Images for Games
+
+- **PNG** – Supports transparency, lossless compression. Best for game sprites and UI.
+- **JPEG** – Small size, no transparency. Good for backgrounds.
+- **GIF** – Supports animation but limited colors.
+
+**Transparency (Alpha Channel)**: PNG images can have transparent areas, allowing sprites to overlay backgrounds seamlessly.
+
+### Creating a Simple Texture with GIMP
+
+We'll create a simple 256x256 texture for a game board square:
+
+1. Open GIMP, create new image 256x256.
+2. Use the rectangle select tool to draw a border.
+3. Fill with color.
+4. Export as PNG (with transparency if needed).
+
+---
+
+## 7.3 Using `Canvas` for Drawing
+
+`Canvas` allows programmatic drawing (like a paint canvas).
+
+```java
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
+
+Canvas canvas = new Canvas(400, 300);
+GraphicsContext gc = canvas.getGraphicsContext2D();
+
+gc.setFill(Color.BLUE);
+gc.fillRect(50, 50, 100, 100);
+
+gc.setStroke(Color.RED);
+gc.setLineWidth(3);
+gc.strokeOval(200, 50, 100, 80);
+
+gc.setFill(Color.GREEN);
+gc.fillText("Hello", 50, 200);
+```
+
+---
+
+## 7.4 Applying Effects
+
+JavaFX has built-in effects like drop shadow, bloom, color adjust.
+
+```java
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.ColorAdjust;
+
+DropShadow shadow = new DropShadow();
+shadow.setRadius(5);
+shadow.setOffsetX(3);
+shadow.setOffsetY(3);
+
+imageView.setEffect(shadow);
+
+ColorAdjust colorAdjust = new ColorAdjust();
+colorAdjust.setHue(0.2);  // shift color
+imageView.setEffect(colorAdjust);
+```
+
+---
+
+## 7.5 Project Step: Add a Logo and Background Image to Menu
+
+We'll enhance the main menu with a logo and background.
+
+### Add Logo
+
+```java
+Image logoImage = new Image(getClass().getResourceAsStream("/logo.png"));
+ImageView logoView = new ImageView(logoImage);
+logoView.setFitWidth(300);
+logoView.setPreserveRatio(true);
+```
+
+### Add Background Image
+
+We can set a background on the `VBox` using CSS or by placing an `ImageView` behind everything using `StackPane`.
+
+```java
+StackPane root = new StackPane();
+Image bgImage = new Image("file:background.jpg");
+ImageView bgView = new ImageView(bgImage);
+bgView.setFitWidth(800);
+bgView.setFitHeight(600);
+
+// Put background first, then the VBox on top
+VBox vbox = new VBox(15);
+// ... add title, buttons
+
+root.getChildren().addAll(bgView, vbox);
+```
+
+### CSS Styling (Optional)
+
+JavaFX supports CSS. You can set styles on nodes:
+```java
+title.setStyle("-fx-font-size: 48; -fx-text-fill: white; -fx-font-weight: bold;");
+```
+
+---
+
+## 7.6 Practice Exercises
+
+1. Create a splash screen with an animated logo (use `RotateTransition`).
+2. Draw a game board grid using `Canvas`.
+3. Add a glow effect to the title.
+4. Load a texture map and apply it to a 3D primitive (preview for later).
+
+---
+
+## 7.7 Self-Check Questions
+
+1. How do you load an image from resources?
+2. What is the advantage of PNG over JPEG?
+3. What is an `ImageView`?
+4. How do you draw a rectangle on a `Canvas`?
+5. What does `DropShadow` do?
+
+---
+
+## 7.8 Summary
+
+- Images are loaded with `Image` and displayed with `ImageView`.
+- PNG supports transparency.
+- `Canvas` allows custom drawing.
+- Effects enhance visuals.
+- We improved our menu with images.
+
+---
+
+# MODULE 8: 3D Graphics with JavaFX
+
+## Learning Objectives
+
+- Set up a 3D scene with camera and lighting
+- Create 3D primitives (Box, Sphere, Cylinder)
+- Apply materials and textures
+- Build the 3D game board
+
+---
+
+## 8.1 Introduction to 3D in JavaFX
+
+JavaFX includes a 3D API based on OpenGL. We can create 3D objects, lights, and cameras.
+
+**Key Classes**:
+- `PerspectiveCamera` – simulates human vision.
+- `AmbientLight` – uniform lighting.
+- `PointLight` – light from a point.
+- `Shape3D` – base for 3D shapes.
+- `Box`, `Sphere`, `Cylinder` – primitives.
+- `PhongMaterial` – material with colors and textures.
+
+---
+
+## 8.2 Setting Up a 3D Scene
+
+```java
+import javafx.scene.Group;
+import javafx.scene.PerspectiveCamera;
+import javafx.scene.Scene;
+import javafx.scene.shape.Box;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.PhongMaterial;
+import javafx.scene.PointLight;
+
+// In start() method:
+Group root = new Group();
+
+// Camera
+PerspectiveCamera camera = new PerspectiveCamera(true);
+camera.setTranslateZ(-1000);
+camera.setNearClip(0.1);
+camera.setFarClip(5000);
+
+// Light
+PointLight light = new PointLight(Color.WHITE);
+light.setTranslateX(-100);
+light.setTranslateY(-200);
+light.setTranslateZ(-300);
+
+// A box
+Box box = new Box(200, 200, 200);
+PhongMaterial material = new PhongMaterial(Color.BLUE);
+box.setMaterial(material);
+
+root.getChildren().addAll(box, light);
+
+Scene scene = new Scene(root, 800, 600);
+scene.setCamera(camera);
+```
+
+---
+
+## 8.3 3D Primitives and Transformations
+
+### Box (cube/rectangle)
+
+```java
+Box box = new Box(width, height, depth);
+box.setTranslateX(x);
+box.setTranslateY(y);
+box.setTranslateZ(z);
+box.setRotate(angle);  // around axis (default Z)
+box.setRotationAxis(Rotate.X_AXIS);
+```
+
+### Sphere
+
+```java
+Sphere sphere = new Sphere(radius);
+sphere.setTranslateX(100);
+```
+
+### Cylinder
+
+```java
+Cylinder cylinder = new Cylinder(radius, height);
+```
+
+---
+
+## 8.4 Materials and Textures
+
+`PhongMaterial` allows diffuse and specular colors, plus texture maps.
+
+```java
+PhongMaterial material = new PhongMaterial();
+material.setDiffuseColor(Color.RED);
+material.setSpecularColor(Color.WHITE);
+material.setSpecularPower(20);
+
+// Texture map (image)
+Image texture = new Image("file:texture.png");
+material.setDiffuseMap(texture);
+```
+
+---
+
+## 8.5 Project Step: Build the 3D Game Board
+
+We'll create a board with 4 quadrants, each with 5 squares (total 20 squares).
+
+### Create `GameBoard3D` class
+
+```java
+package knowledgequestfx;
+
+import javafx.scene.Group;
+import javafx.scene.shape.Box;
+import javafx.scene.paint.PhongMaterial;
+import javafx.scene.paint.Color;
+
+public class GameBoard3D {
+    private Group boardGroup;
+    private Box[][] squares;  // 4 rows x 5 columns
+
+    public GameBoard3D() {
+        boardGroup = new Group();
+        squares = new Box[4][5];
+        buildBoard();
+    }
+
+    private void buildBoard() {
+        double squareSize = 150;
+        double gap = 10;
+        double startX = - (4 * (squareSize + gap)) / 2;
+        double startZ = - (5 * (squareSize + gap)) / 2;
+
+        for (int row = 0; row < 4; row++) {
+            for (int col = 0; col < 5; col++) {
+                Box square = new Box(squareSize, 5, squareSize);
+                square.setTranslateX(startX + row * (squareSize + gap));
+                square.setTranslateZ(startZ + col * (squareSize + gap));
+                square.setTranslateY(0);
+
+                // Color based on row
+                Color color = Color.rgb(100 + row * 40, 100, 200 - row * 30);
+                PhongMaterial material = new PhongMaterial(color);
+                square.setMaterial(material);
+
+                squares[row][col] = square;
+                boardGroup.getChildren().add(square);
+            }
+        }
+    }
+
+    public Group getGroup() {
+        return boardGroup;
+    }
+
+    public Box getSquare(int row, int col) {
+        return squares[row][col];
+    }
+}
+```
+
+### Integrate into Game Scene
+
+In `GameUI` class (we'll create later), we'll add `GameBoard3D` to the scene.
+
+---
+
+## 8.6 Rotating the Board
+
+We can rotate the entire board group.
+
+```java
+boardGroup.setRotationAxis(Rotate.Y_AXIS);
+boardGroup.setRotate(45);
+```
+
+---
+
+## 8.7 Practice Exercises
+
+1. Create a checkerboard pattern using different colored boxes.
+2. Add a sphere as a game piece.
+3. Apply a texture map (from a PNG file) to a box.
+4. Add `PointLight` and `AmbientLight` to the scene.
+5. Move the camera to view the board from above.
+
+---
+
+## 8.8 Self-Check Questions
+
+1. What is the difference between `AmbientLight` and `PointLight`?
+2. How do you apply a texture to a 3D object?
+3. What does `setTranslateX` do?
+4. How do you rotate an object around the Y axis?
+5. What is a `Group` and why use it?
+
+---
+
+## 8.9 Summary
+
+- JavaFX supports 3D graphics.
+- Primitives: Box, Sphere, Cylinder.
+- Materials and textures define appearance.
+- We built a 3D game board with colored squares.
+
+---
+
+# MODULE 9: Animation and Interactivity
+
+## Learning Objectives
+
+- Use `Transition` classes for animation
+- Create a spinner animation
+- Handle mouse clicks on 3D objects
+- Implement game logic (turns, dice, movement)
+
+---
+
+## 9.1 Animation in JavaFX
+
+JavaFX provides `Transition` subclasses for common animations.
+
+- `RotateTransition` – rotate a node.
+- `TranslateTransition` – move a node.
+- `ScaleTransition` – scale a node.
+- `FadeTransition` – fade in/out.
+- `ParallelTransition` – combine animations.
+- `SequentialTransition` – run animations one after another.
+
+### Example: Rotate a sphere
+
+```java
+import javafx.animation.RotateTransition;
+import javafx.util.Duration;
+
+RotateTransition rt = new RotateTransition(Duration.seconds(2), sphere);
+rt.setByAngle(360);
+rt.setCycleCount(1);
+rt.play();
+```
+
+---
+
+## 9.2 Project Step: Spinner for Topic Selection
+
+We'll create a spinner (a sphere with text) that rotates and stops on a quadrant.
+
+### Create Spinner Node
+
+```java
+Sphere spinner = new Sphere(60);
+PhongMaterial spinMat = new PhongMaterial();
+Image spinTexture = new Image("file:spin_texture.png");  // texture with "SPIN" text
+spinMat.setDiffuseMap(spinTexture);
+spinner.setMaterial(spinMat);
+spinner.setTranslateX(0);
+spinner.setTranslateY(0);
+spinner.setTranslateZ(100);
+```
+
+### Animation to Spin
+
+```java
+RotateTransition spinnerSpin = new RotateTransition(Duration.seconds(3), spinner);
+spinnerSpin.setAxis(Rotate.Y_AXIS);
+spinnerSpin.setByAngle(1080);  // 3 full rotations
+spinnerSpin.setCycleCount(1);
+spinnerSpin.setOnFinished(event -> {
+    // Determine which quadrant landed
+    int quadrant = (int) (spinner.getRotate() % 360 / 90);
+    // Highlight that quadrant
+});
+spinnerSpin.play();
+```
+
+---
+
+## 9.3 Mouse Interaction with 3D Objects
+
+We can detect clicks on 3D nodes using `setOnMouseClicked`.
+
+```java
+spinner.setOnMouseClicked(event -> {
+    // Start spinning
+    spinnerSpin.play();
+});
+```
+
+For picking exactly which square was clicked, we use `PickResult`.
+
+```java
+spinner.setOnMouseClicked(event -> {
+    PickResult pickResult = event.getPickResult();
+    if (pickResult != null) {
+        Node pickedNode = pickResult.getIntersectedNode();
+        if (pickedNode instanceof Box) {
+            Box square = (Box) pickedNode;
+            // Highlight or interact with square
+        }
+    }
+});
+```
+
+---
+
+## 9.4 Game Logic: Turns, Dice, and Movement
+
+We'll create a `GameController` class to manage turns.
+
+### Basic Turn Flow
+
+1. Player clicks "Roll Dice" button.
+2. Dice rolls (random 1-6).
+3. Player's piece moves forward that many squares.
+4. Land on a square -> trigger interaction.
+5. End turn, next player.
+
+### Implement Dice
+
+```java
+import java.util.Random;
+Random random = new Random();
+int dice = random.nextInt(6) + 1;
+```
+
+### Move Player Piece
+
+We'll animate the piece moving from square to square.
+
+```java
+TranslateTransition movePiece = new TranslateTransition(Duration.seconds(0.5), piece);
+movePiece.setByX(targetX - piece.getTranslateX());
+movePiece.setByZ(targetZ - piece.getTranslateZ());
+movePiece.play();
+```
+
+---
+
+## 9.5 Project Step: Integrate Game Logic
+
+We'll create a `GameController` class that holds state.
+
+```java
+public class GameController {
+    private Player player;
+    private ComputerPlayer computer;
+    private GameBoard3D board;
+    private boolean isPlayerTurn = true;
+
+    public void rollDice() {
+        int roll = new Random().nextInt(6) + 1;
+        // Move player piece
+        // Update position
+        // Check square type
+        // If question, show question dialog
+        // End turn
+    }
+}
+```
+
+We'll connect UI buttons to controller methods.
+
+---
+
+## 9.6 Practice Exercises
+
+1. Animate a game piece moving along the board.
+2. Add a "Roll Dice" button that rolls and moves the piece.
+3. Implement a simple question system (multiple choice).
+4. Add a turn indicator (whose turn it is).
+5. Create a win condition (reach end of board).
+
+---
+
+## 9.7 Self-Check Questions
+
+1. What is the difference between `RotateTransition` and `TranslateTransition`?
+2. How do you detect a click on a 3D object?
+3. How do you combine two animations to run simultaneously?
+4. What is a `PickResult`?
+5. How do you handle turn-based logic?
+
+---
+
+## 9.8 Summary
+
+- Animation brings life to the game.
+- `Transition` classes make animations easy.
+- Mouse events work on 3D nodes.
+- Game logic coordinates turns and rules.
+- We implemented rolling, moving, and interaction.
+
+---
+
+# MODULE 10: Advanced Features – Audio, Polish, and Packaging
+
+## Learning Objectives
+
+- Add sound effects and music
+- Polish UI with CSS
+- Implement save/load
+- Build and package the final application
+
+---
+
+## 10.1 Adding Audio with JavaFX
+
+JavaFX provides `AudioClip` for short sounds and `MediaPlayer` for longer files.
+
+### AudioClip
+
+```java
+import javafx.scene.media.AudioClip;
+
+AudioClip diceSound = new AudioClip(getClass().getResource("/dice.mp3").toString());
+diceSound.play();
+```
+
+### MediaPlayer
+
+```java
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+Media media = new Media(getClass().getResource("/bgmusic.mp3").toString());
+MediaPlayer mediaPlayer = new MediaPlayer(media);
+mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+mediaPlayer.play();
+```
+
+---
+
+## 10.2 CSS Styling for UI
+
+JavaFX supports CSS for styling nodes. Create a `.css` file in your resources and apply it.
+
+```css
+/* styles.css */
+.root {
+    -fx-background-color: #2b2b2b;
+}
+.button {
+    -fx-font-size: 18px;
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+}
+.button:hover {
+    -fx-background-color: #45a049;
+}
+.title {
+    -fx-font-size: 48px;
+    -fx-text-fill: gold;
+    -fx-font-weight: bold;
+}
+```
+
+Load it in Java:
+
+```java
+Scene scene = new Scene(root, 800, 600);
+scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
+```
+
+---
+
+## 10.3 Save/Load Game State
+
+We can serialize the game state to a file.
+
+```java
+import java.io.*;
+
+public class GameState implements Serializable {
+    private Player player;
+    private ComputerPlayer computer;
+    private int currentTurn;
+    // etc.
+}
+
+// Save
+try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("save.ser"))) {
+    out.writeObject(gameState);
+}
+
+// Load
+try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("save.ser"))) {
+    GameState loaded = (GameState) in.readObject();
+}
+```
+
+---
+
+## 10.4 Packaging and Distribution
+
+To create a runnable JAR:
+
+1. In NetBeans, right-click project → Clean and Build.
+2. The JAR will be in `dist` folder.
+3. To run: `java -jar KnowledgeQuest.jar`
+
+For a more professional installer, use tools like **jpackage** (Java 14+) or **Install4j**.
+
+---
+
+## 10.5 Final Polish
+
+- Add loading screen
+- Improve textures and graphics
+- Add more questions
+- Add sound effects for each action
+- Add animations for transitions
+
+---
+
+## 10.6 Practice Exercises
+
+1. Add a background music loop.
+2. Style the game UI with a dark theme.
+3. Implement save/load from the main menu.
+4. Create an installer using jpackage.
+
+---
+
+## 10.7 Self-Check Questions
+
+1. How do you play a short sound effect?
+2. How do you apply CSS to a JavaFX scene?
+3. What is serialization and how is it used?
+4. How do you build a JAR file?
+5. What is the difference between `AudioClip` and `MediaPlayer`?
+
+---
+
+## 10.8 Summary
+
+- Audio enhances the experience.
+- CSS makes UI look professional.
+- Save/load allows continuation.
+- Packaging creates a distributable product.
+- Our game is now complete and sellable.
+
+---
+
+# MODULE 11: Software Architecture and Design Principles
+
+## Learning Objectives
+
+- Understand software architecture concepts
+- Apply SOLID principles
+- Manage technical debt
+- Design for maintainability and scalability
+
+---
+
+## 11.1 What is Software Architecture?
+
+Architecture is the high-level structure of a software system. It includes:
+
+- Components and their responsibilities
+- Communication between components
+- Deployment strategy
+- Quality attributes (performance, security, maintainability)
+
+**Why it matters**: Good architecture makes the system easy to change, test, and understand.
+
+---
+
+## 11.2 SOLID Principles
+
+**S – Single Responsibility**: A class should have one reason to change. Our `Player` class should only manage player state, not UI or persistence.
+
+**O – Open/Closed**: Open for extension, closed for modification. We can add new square types without changing existing code.
+
+**L – Liskov Substitution**: Subtypes must be substitutable for their base types.
+
+**I – Interface Segregation**: Many specific interfaces are better than one general interface.
+
+**D – Dependency Inversion**: Depend on abstractions, not concretions.
+
+---
+
+## 11.3 Applying SOLID to Our Game
+
+- We can split `GameController` into separate classes: `TurnManager`, `QuestionManager`, `ScoreManager`.
+- Use interfaces for question providers, AI strategies.
+- Use dependency injection to inject services.
+
+---
+
+## 11.4 Managing Technical Debt
+
+Technical debt is the cost of taking shortcuts. We should:
+
+- Refactor regularly.
+- Write unit tests.
+- Keep documentation up to date.
+
+---
+
+## 11.5 Practice Exercises
+
+1. Identify a class that violates Single Responsibility in your game.
+2. Refactor it into two classes.
+3. Write a unit test for the `ScoreManager`.
+
+---
+
+## 11.6 Self-Check Questions
+
+1. What is software architecture?
+2. What does each SOLID principle mean?
+3. What is technical debt?
+4. How can you reduce coupling?
+
+---
+
+## 11.7 Summary
+
+- Architecture provides structure.
+- SOLID principles guide design.
+- Technical debt must be managed.
+
+---
+
+# MODULE 12: Capstone – Final Polish and Monetization
+
+## Learning Objectives
+
+- Complete all game features
+- Test and debug thoroughly
+- Prepare for monetization (ads, in-app purchases, or sale)
+- Create a business plan
+
+---
+
+## 12.1 Final Feature Checklist
+
+- [ ] Full game loop (dice, move, interact, score)
+- [ ] Multiple players (human vs. computer)
+- [ ] Question bank with at least 50 questions
+- [ ] Sound effects and music
+- [ ] Save/Load
+- [ ] High scores
+- [ ] Instructions screen
+- [ ] Polish UI and 3D visuals
+
+---
+
+## 12.2 Testing and Debugging
+
+- Run through all scenarios.
+- Test error handling (invalid input, missing files).
+- Use the NetBeans debugger to step through code.
+
+---
+
+## 12.3 Monetization Options
+
+- **Paid app**: Sell the JAR or installer.
+- **Ad-supported**: Integrate AdMob or other ad SDK.
+- **In-app purchases**: Sell question packs or cosmetic items.
+
+For desktop Java, consider distributing via **itch.io**, **Steam**, or your own website.
+
+---
+
+## 12.4 Business Plan
+
+- Target audience (students, trivia lovers)
+- Marketing strategy (social media, game forums)
+- Pricing model
+- Support plan
+
+---
+
+## 12.5 Final Project Submission
+
+Submit your final project with:
+
+- Source code
+- Executable JAR
+- User documentation
+- Business plan
+
+---
+
+## Congratulations!
+
+You have completed the journey from absolute beginner to software architect. You have built a sellable 3D game, learned Java, JavaFX, OOP, design patterns, and software engineering principles. You are now equipped to build any software project you can imagine.
+
+**Next Steps**:
+- Continue learning: advanced algorithms, databases, web development.
+- Build more projects.
+- Contribute to open source.
+- Start your own software business.
+
+Good luck, and happy coding!
