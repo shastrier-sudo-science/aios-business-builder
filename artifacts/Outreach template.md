@@ -1,0 +1,2 @@
+Outreach DM Template (adapt for platform):
+Hey [Name], noticed your channel is sitting on a content-to-subscriber gap — [X] videos, [X] subs. That's usually a retention or hook problem, not a consistency problem. I ghostwrite AI-focused YouTube scripts using a Voice DNA system that captures how you specifically explain things, not a generic AI tone. If you want, I can write your next script intro as a test — no charge. Takes me about 20 minutes. You tell me if it sounds like you.
