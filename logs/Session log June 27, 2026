@@ -1,0 +1,213 @@
+# SOVEREIGN HANDOFF CAPSULE
+**Session Date:** June 27, 2026
+**Project:** ForecastOS
+**System:** Lang CORE v2.1 / SOVEREIGN AIOS
+**File:** `index.html` (single-file, deployed via GitHub Pages)
+**Repo:** `shastrier-sudo-science/forecastos`
+
+---
+
+## MISSION STATUS
+
+| Objective | Status |
+|---|---|
+| PWA install support | COMPLETE |
+| Soft email gate (skip button) | COMPLETE |
+| Formspree wired + live confirmed | COMPLETE — ID: `xvznbvaq`, test submission verified |
+| Monetization bridge (ProposalForge / AIOS / book CTAs) | COMPLETE |
+| Freedom Calculator widget | COMPLETE |
+| Origin story card in About tab | COMPLETE |
+| Forecast horizon bug fixed | COMPLETE — `computeHorizonMeta()` built |
+| CoinGecko fetch hardening | COMPLETE — `fetchWithRetry()` built |
+| `CONFIG.BOOK_URL` | **PATCH READY, NOT YET APPLIED** — use Amazon link below |
+| `CONFIG.PRO_PAYMENT_URL` | **BLANK — waiting on LemonSqueezy approval** |
+| `goPro()` function patched | **PATCH WRITTEN, NOT YET COMMITTED** — see below |
+| Signal interpretation layer (8 metrics + plain-English verdict) | NOT BUILT |
+| Positioning/copy rewrite ("crypto signal interpreter") | NOT BUILT |
+| Ad-revenue pivot | REJECTED — not viable on this timeline (450k+ pageviews/month needed before $1k/week) |
+
+---
+
+## IMMEDIATE NEXT ACTIONS (in order)
+
+### 1. Apply the two CONFIG values (10 min, do this first)
+
+In the `CONFIG` object near the top of the script, set:
+
+```js
+PRO_PAYMENT_URL: '',   // paste LemonSqueezy checkout URL here when approved
+BOOK_URL: 'https://www.amazon.com/Hacking-Your-Mindset-possibilities-self-motivate-ebook/dp/B0CS9X3Q3K',
+```
+
+`BOOK_URL` can be set right now. `PRO_PAYMENT_URL` waits on LemonSqueezy review completion.
+
+### 2. Apply the `goPro()` patch (5 min, do this now)
+
+Find this function in the file (~line 2949) and replace entirely:
+
+**FIND:**
+```javascript
+function goPro() {
+  // Until Payoneer/LemonSqueezy is live, scroll to the upgrade intent form
+  const form = document.getElementById('upgrade-intent-form');
+  if (form) {
+    form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => {
+      const inp = document.getElementById('pro-intent-email');
+      if (inp) inp.focus();
+    }, 400);
+  } else {
+    // Fallback: open the about tab
+    switchTab('about');
+    showToast('Pro launch coming soon. Leave your email in the forecast results to be first notified.');
+  }
+}
+```
+
+**REPLACE WITH:**
+```javascript
+function goPro() {
+  // If a real LemonSqueezy checkout URL is configured, send the user straight there.
+  if (CONFIG.PRO_PAYMENT_URL && CONFIG.PRO_PAYMENT_URL.trim() !== '') {
+    window.open(CONFIG.PRO_PAYMENT_URL, '_blank');
+    return;
+  }
+
+  // Fallback: PRO_PAYMENT_URL not set yet — scroll to the waitlist form instead
+  const form = document.getElementById('upgrade-intent-form');
+  if (form) {
+    form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => {
+      const inp = document.getElementById('pro-intent-email');
+      if (inp) inp.focus();
+    }, 400);
+  } else {
+    switchTab('about');
+    showToast('Pro launch coming soon. Leave your email in the forecast results to be first notified.');
+  }
+}
+```
+
+**Why:** Current `goPro()` always scrolls to the waitlist form and never opens a payment link, even after `PRO_PAYMENT_URL` is filled in. This patch makes the button live the moment LemonSqueezy approves — zero further code changes needed.
+
+---
+
+## BLOCKERS
+
+| Blocker | Owner | ETA |
+|---|---|---|
+| LemonSqueezy merchant account review | LemonSqueezy (external) | Unknown |
+| `PRO_PAYMENT_URL` blank until above clears | Shastrie | Unblocked after LemonSqueezy |
+
+---
+
+## LAUNCH READINESS CHECKLIST
+
+- [x] Formspree email capture working (confirmed live submission June 27)
+- [x] Forecast horizon shows real calendar date (not just a number)
+- [x] CoinGecko retries on failure with human-readable error messages
+- [ ] `CONFIG.BOOK_URL` set to Amazon link (can do today)
+- [ ] `goPro()` patch committed to GitHub (can do today)
+- [ ] `CONFIG.PRO_PAYMENT_URL` set (blocked on LemonSqueezy)
+- [ ] All CTA buttons tested on live URL (no placeholder links opening)
+- [ ] Formspree "weekly signal digest" claim — FLAG: this is mentioned in email gate copy but no weekly digest automation exists. Either remove this claim or build the automation before launch.
+
+---
+
+## KNOWN RISKS
+
+1. **"Weekly signal digest" claim in email gate copy is unsubstantiated.** The Formspree form tells users they'll receive a weekly signal digest after submitting. No such automation exists. This is a false promise on a live product. Must be removed or fulfilled before any real launch push.
+
+2. **Formspree account must stay active.** The `xvznbvaq` endpoint is tied to a Formspree account. If that account is deleted or goes inactive, email capture silently breaks with no error to the user.
+
+3. **Pro fulfillment is manual.** When LemonSqueezy is live and someone pays, there is no automatic account unlock — ForecastOS has no backend, no Supabase, no auth. Manual process: LemonSqueezy emails you the sale, you email the buyer a private access note or next step. This is the correct approach at current volume.
+
+4. **`computeHorizonMeta` assumes clean date column.** CSV files with wildly irregular date gaps will produce misleading forecast horizon labels. No warning exists for this edge case yet.
+
+---
+
+## CONFIG REFERENCE (current state)
+
+```js
+const CONFIG = {
+  VERSION: '2.0.0',
+  COINGECKO_BASE: 'https://api.coingecko.com/api/v3',       // keyless, 5-15 req/min
+  FEAR_GREED_API: 'https://api.alternative.me/fng/?limit=1', // keyless, has fallback
+  PRO_PAYMENT_URL: '',         // BLANK — set when LemonSqueezy approves
+  BOOK_URL: '',                // SET TO: https://www.amazon.com/Hacking-Your-Mindset-possibilities-self-motivate-ebook/dp/B0CS9X3Q3K
+  FORMSPREE_ID: 'xvznbvaq',   // LIVE — confirmed working June 27 2026
+  MAX_ROWS: 5000,
+  MIN_ROWS: 3,
+  MAX_SIMULATIONS: 50000,
+};
+```
+
+---
+
+## PHASE 2 BACKLOG (do not build before launch)
+
+These were deliberately deferred. Do not touch until ForecastOS has first paying user or 50+ free signups:
+
+1. 30-day vs 90-day BTC momentum divergence signal
+2. Altcoin season index (CoinGecko top-20 vs BTC)
+3. 24h volume vs 7-day average volume conviction indicator
+4. Market cap change vs volume change ("smart money" signal)
+5. Top 5 gainers/losers sort in coin table
+6. Plain-English live signal verdict layer (the actual headline product per Kimi's analysis)
+7. Landing copy rewrite: "Universal Forecasting Dashboard" → "crypto signal interpreter for retail traders"
+
+**Strategic note:** the signal interpretation layer is the real differentiator. Plain-English verdicts from free-tier CoinGecko + Alternative.me data is the gap in the market Glassnode doesn't fill at retail price points. This is v2 positioning, not a launch blocker.
+
+---
+
+## PROPOSALFORGE STATUS (parallel track)
+
+- Kill date: June 30, 2026
+- Two blockers remain: custom Vercel domain (all shared links break on deploy-hash URL), and initial distribution push
+- Model string confirmed working: `claude-sonnet-4-6`
+- Payment: PayPal Plan ID `P-4YV96810FU800061WNI56NOY`
+- Upgrade URL: `https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-4YV96810FU800061WNI56NOY`
+- Manual upgrade fulfillment: `UPDATE profiles SET plan = 'pro' WHERE email = '...'` in Supabase
+- RLS note: `forge_rules` table allows any authenticated user to insert — fix before scaling past 50 users (move to service role key server-side)
+
+---
+
+## GHOSTWRITING SERVICE (parallel track)
+
+- Active outreach phase targeting YouTube creators: AI Injection, JimCircuit, Tokscript, Sunny Israni, Claude Unlocked
+- Strategy: free intro script as proof before pitch, cold DM targeting high video-to-subscriber gap creators
+- Minimum viable daily task: run one proposal, log one outcome
+
+---
+
+## FINANCIAL CONTEXT
+
+All figures from Supabase system_state — do not hardcode. Reference only:
+- Surplus: $419 TTD/month
+- Debt priority: CU loan → car loan → mortgage
+- Income hierarchy: Services → Digital products → SaaS → Investments
+
+---
+
+## MULTI-AI DIVISION OF LABOR
+
+- Claude: security-sensitive code, architecture decisions, cross-AI conflict resolution (this session)
+- Gemini: market research
+- DeepSeek: technical blueprints, SQL drafts
+- ChatGPT: no-code UI walkthroughs, marketing copy
+- Grok: real-time social/X data
+- Kimi: whole-repo audits, long handoffs
+
+---
+
+REMEMBER THIS:
+Q: What single action unblocks every Pro button in ForecastOS?
+A: Set `CONFIG.PRO_PAYMENT_URL` to the LemonSqueezy checkout URL after approval.
+
+Q: What false promise must be removed before launch?
+A: "Weekly signal digest" claim in email gate copy — no automation backs it.
+
+Q: What is the Pro fulfillment process with no backend?
+A: Manual — LemonSqueezy notifies you by email, you handle access delivery manually.
+
+NEXT ACTION: Set `CONFIG.BOOK_URL` to the Amazon link + commit the `goPro()` patch in GitHub web editor (15 min total, unblocked right now).
